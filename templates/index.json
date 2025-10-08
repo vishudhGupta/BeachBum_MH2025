@@ -9,54 +9,35 @@
  */
 {
   "sections": {
-    "17599274205eb43c09": {
+    "1759927884ab2affae": {
       "type": "_blocks",
       "blocks": {
-        "ai_gen_block_1c2e767_NAmLTE": {
-          "type": "ai_gen_block_1c2e767",
+        "ai_gen_block_53e5199_RJf6eq": {
+          "type": "ai_gen_block_53e5199",
           "settings": {
-            "image": "shopify://shop_images/85a39a28eab070358ad371c69fb0cffc3c5e41ff.png",
-            "image_border_radius": 0,
-            "dot_size": 32,
-            "dot_color": "#ffffff",
-            "dot_border_color": "#121212",
-            "dot_border_width": 2,
-            "dot_inner_color": "#121212",
-            "popup_position": "top",
-            "popup_width": 280,
-            "popup_border_radius": 8,
-            "popup_bg_color": "#ffffff",
-            "popup_text_color": "#121212",
-            "popup_button_color": "#121212",
-            "popup_button_text_color": "#ffffff",
-            "popup_button_hover_color": "#000000",
-            "button_text": "View product",
-            "hotspot_1_enabled": true,
-            "hotspot_1_x": 43,
-            "hotspot_1_y": 31,
-            "hotspot_1_product": "adelia-boyfriend-shirt-with-rear-lace-inserts",
-            "hotspot_2_enabled": true,
-            "hotspot_2_x": 60,
-            "hotspot_2_y": 25,
-            "hotspot_2_product": "",
-            "hotspot_3_enabled": true,
-            "hotspot_3_x": 75,
-            "hotspot_3_y": 60,
-            "hotspot_3_product": "",
-            "hotspot_4_enabled": false,
-            "hotspot_4_x": 20,
-            "hotspot_4_y": 70,
-            "hotspot_4_product": "",
-            "hotspot_5_enabled": false,
-            "hotspot_5_x": 85,
-            "hotspot_5_y": 80,
-            "hotspot_5_product": ""
+            "autoplay": true,
+            "autoplay_speed": 5,
+            "desktop_height": 800,
+            "mobile_height": 300,
+            "border_radius": 0,
+            "slide_1_enabled": true,
+            "slide_1_desktop_image": "shopify://shop_images/Artboard_2sss.webp",
+            "slide_1_mobile_image": "shopify://shop_images/Artboard_2_copy.webp",
+            "slide_1_url": "",
+            "slide_2_enabled": false,
+            "slide_2_url": "",
+            "slide_3_enabled": false,
+            "slide_3_url": "",
+            "slide_4_enabled": false,
+            "slide_4_url": "",
+            "slide_5_enabled": false,
+            "slide_5_url": ""
           },
           "blocks": {}
         }
       },
       "block_order": [
-        "ai_gen_block_1c2e767_NAmLTE"
+        "ai_gen_block_53e5199_RJf6eq"
       ],
       "settings": {}
     },
@@ -204,6 +185,57 @@
         "padding_bottom": 36
       }
     },
+    "17599274205eb43c09": {
+      "type": "_blocks",
+      "blocks": {
+        "ai_gen_block_1c2e767_NAmLTE": {
+          "type": "ai_gen_block_1c2e767",
+          "settings": {
+            "image": "shopify://shop_images/85a39a28eab070358ad371c69fb0cffc3c5e41ff.png",
+            "image_border_radius": 0,
+            "dot_size": 32,
+            "dot_color": "#ffffff",
+            "dot_border_color": "#121212",
+            "dot_border_width": 2,
+            "dot_inner_color": "#121212",
+            "popup_position": "left",
+            "popup_width": 280,
+            "popup_border_radius": 8,
+            "popup_bg_color": "#ffffff",
+            "popup_text_color": "#121212",
+            "popup_button_color": "#121212",
+            "popup_button_text_color": "#ffffff",
+            "popup_button_hover_color": "#000000",
+            "button_text": "View product",
+            "hotspot_1_enabled": true,
+            "hotspot_1_x": 43,
+            "hotspot_1_y": 31,
+            "hotspot_1_product": "adelia-boyfriend-shirt-with-rear-lace-inserts",
+            "hotspot_2_enabled": true,
+            "hotspot_2_x": 60,
+            "hotspot_2_y": 25,
+            "hotspot_2_product": "",
+            "hotspot_3_enabled": true,
+            "hotspot_3_x": 75,
+            "hotspot_3_y": 60,
+            "hotspot_3_product": "",
+            "hotspot_4_enabled": false,
+            "hotspot_4_x": 20,
+            "hotspot_4_y": 70,
+            "hotspot_4_product": "",
+            "hotspot_5_enabled": false,
+            "hotspot_5_x": 85,
+            "hotspot_5_y": 80,
+            "hotspot_5_product": ""
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "ai_gen_block_1c2e767_NAmLTE"
+      ],
+      "settings": {}
+    },
     "video": {
       "type": "video",
       "settings": {
@@ -273,11 +305,12 @@
     }
   },
   "order": [
-    "17599274205eb43c09",
+    "1759927884ab2affae",
     "image_banner",
     "rich_text",
     "featured_collection",
     "collage",
+    "17599274205eb43c09",
     "video",
     "multicolumn"
   ]
