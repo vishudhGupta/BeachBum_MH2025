@@ -17,7 +17,7 @@
           "settings": {
             "autoplay": true,
             "autoplay_speed": 5,
-            "desktop_height": 700,
+            "desktop_height": 800,
             "mobile_height": 325,
             "border_radius": 0,
             "slide_1_enabled": true,
