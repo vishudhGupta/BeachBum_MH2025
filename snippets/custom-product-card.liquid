@@ -1,13 +1,5 @@
 {% comment %}
-  Custom Product Card (Dawn) — inline variants (right of price) + equal-height cards
-  Usage inside grids:
-  {% render 'custom-product-card',
-    card_product: product,
-    media_aspect_ratio: section.settings.image_ratio,
-    image_shape: section.settings.image_shape,
-    lazy_load: lazy_load,
-    section_id: section.id
-  %}
+  Custom Product Card — Equal height + ₹ symbol + compact inline variants
 {% endcomment %}
 
 {% liquid
@@ -39,17 +31,15 @@
     {% if has_sale %}
       <span class="cpc-badge">{{ discount_pct }}% off</span>
     {% endif %}
-
-    <a href="{{ p.url }}" class="cpc-imglink" aria-label="{{ p.title | escape }}">
+    <a href="{{ p.url }}" class="cpc-imglink">
       <img
         class="cpc-img"
         id="{{ card_id }}-img"
-        src="{{ p.featured_image | image_url: width: 900 }}"
+        src="{{ p.featured_image | image_url: width: 800 }}"
         alt="{{ p.title | escape }}"
         loading="{{ loading_value }}"
       >
     </a>
-
     <button class="cpc-wish" type="button" aria-label="Wishlist">♡</button>
   </div>
 
@@ -58,32 +48,36 @@
 
     <form method="post" action="/cart/add" class="cpc-form" id="{{ card_id }}-form">
       <div class="cpc-toprow">
-        <p class="cpc-price">
-          {% if has_sale %}
-            <span class="cpc-price-now">{{ price_now | money_without_trailing_zeros }}</span>
-            <span class="cpc-price-was">{{ price_was | money_without_trailing_zeros }}</span>
-          {% else %}
-            <span class="cpc-price-now">{{ price_now | money_without_trailing_zeros }}</span>
-          {% endif %}
-        </p>
+       <div class="cpc-price">
+  {% if has_sale %}
+    <span class="cpc-price-now">
+      {{ price_now | money_without_trailing_zeros | replace: 'Rs.', '₹' | replace: 'Rs', '₹' }}
+    </span>
+    <span class="cpc-price-was">
+      {{ price_was | money_without_trailing_zeros | replace: 'Rs.', '₹' | replace: 'Rs', '₹' }}
+    </span>
+  {% else %}
+    <span class="cpc-price-now">
+      {{ price_now | money_without_trailing_zeros | replace: 'Rs.', '₹' | replace: 'Rs', '₹' }}
+    </span>
+  {% endif %}
+</div>
+
 
         {% unless p.has_only_default_variant %}
           <div class="cpc-variants cpc-variants--inline">
             {% for option in p.options_with_values %}
               {% assign opt_handle = option.name | handleize %}
-              <div class="cpc-variant">
-                <label class="sr-only" for="{{ card_id }}-opt-{{ opt_handle }}">{{ option.name }}</label>
-                <select
-                  id="{{ card_id }}-opt-{{ opt_handle }}"
-                  class="cpc-select cpc-select--pill"
-                  name="options[{{ option.name }}]"
-                  data-option-index="{{ forloop.index0 }}"
-                >
-                  {% for value in option.values %}
-                    <option value="{{ value | escape }}">{{ value }}</option>
-                  {% endfor %}
-                </select>
-              </div>
+              <select
+                id="{{ card_id }}-opt-{{ opt_handle }}"
+                class="cpc-select cpc-select--pill"
+                name="options[{{ option.name }}]"
+                data-option-index="{{ forloop.index0 }}"
+              >
+                {% for value in option.values %}
+                  <option value="{{ value | escape }}">{{ value }}</option>
+                {% endfor %}
+              </select>
             {% endfor %}
           </div>
         {% endunless %}
@@ -107,99 +101,122 @@
 (() => {
   const card = document.getElementById("{{ card_id }}");
   if (!card) return;
-
   const form = card.querySelector(".cpc-form");
   const imgEl = card.querySelector(".cpc-img");
   const buyNow = card.querySelector("#{{ card_id }}-buynow");
   const dataTag = card.querySelector("#{{ card_id }}-data");
-
   if (!dataTag) return;
-  const product = JSON.parse(dataTag.textContent);
 
+  const product = JSON.parse(dataTag.textContent);
   const selects = card.querySelectorAll(".cpc-select");
+
   function syncVariant() {
     if (!selects.length) return;
     const opts = Array.from(selects).map(s => s.value);
-    const variant = product.variants.find(v => {
-      if (!v || !v.options) return false;
-      if (v.options.length !== opts.length) return false;
-      for (let i = 0; i < v.options.length; i++) {
-        if (String(v.options[i]) !== String(opts[i])) return false;
-      }
-      return true;
-    });
+    const variant = product.variants.find(v => JSON.stringify(v.options) === JSON.stringify(opts));
     if (!variant) return;
-
-    const idInput = form.querySelector('input[name="id"]');
-    if (idInput) idInput.value = variant.id;
-
-    if (buyNow) buyNow.setAttribute('href', `/cart/${variant.id}:1`);
-
-    if (variant.featured_image && imgEl) {
-      const src = variant.featured_image.src;
-      if (src) imgEl.src = src.replace(/(\.jpg|\.jpeg|\.png)(\?.*)?$/i, '$1');
-    }
+    form.querySelector('input[name="id"]').value = variant.id;
+    buyNow.setAttribute('href', `/cart/${variant.id}:1`);
+    if (variant.featured_image && imgEl) imgEl.src = variant.featured_image.src;
   }
   selects.forEach(s => s.addEventListener('change', syncVariant));
-  syncVariant();
 })();
 </script>
 
 <style>
-/* --- Layout / equal heights --- */
-.cpc-card{display:flex;flex-direction:column;border:1px solid #ececec;border-radius:14px;background:#fff;height:100%}
-.cpc-imgwrap{position:relative}
-.cpc-imglink{display:block}
-.cpc-img{
+/* --- Card Layout --- */
+.cpc-card {
+  display:flex;
+  flex-direction:column;
+  border:1px solid #e6e6e6;
+  border-radius:14px;
+  background:#fff;
+  overflow:hidden;
+  height:100%;
+}
+.cpc-imgwrap {position:relative;}
+.cpc-img {
   width:100%;
-  aspect-ratio: 3 / 4;                 /* keeps all cards same height */
-  object-fit: cover;
+  aspect-ratio: 3/4;
+  object-fit:cover;
   display:block;
-  border-top-left-radius:14px;border-top-right-radius:14px;
 }
-.cpc-body{padding:14px 16px;display:flex;flex-direction:column;gap:8px;flex:1}
+.cpc-badge {
+  position:absolute;top:10px;left:10px;
+  background:#111;color:#fff;
+  font-size:12px;padding:4px 8px;border-radius:4px;
+}
+.cpc-wish {
+  position:absolute;top:10px;right:10px;
+  background:#fff;border:0;font-size:18px;
+  width:32px;height:32px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  cursor:pointer;
+}
 
-/* --- Badges / wish --- */
-.cpc-badge{position:absolute;top:12px;left:12px;background:#111;color:#fff;font-size:13px;padding:6px 10px;border-radius:4px}
-.cpc-wish{position:absolute;top:12px;right:12px;background:#fff;border:0;font-size:20px;line-height:1;border-radius:999px;width:34px;height:34px;display:flex;align-items:center;justify-content:center;cursor:pointer}
+/* --- Content --- */
+.cpc-body {padding:10px 12px;display:flex;flex-direction:column;justify-content:space-between;flex:1;}
+.cpc-title {
+  font-weight:600;font-size:15px;line-height:1.3;
+  margin:6px 0 4px;min-height:2.8em;overflow:hidden;
+}
 
-/* --- Title (reserve space so all cards align) --- */
-.cpc-title{font-weight:600;font-size:22px;line-height:1.25;margin:2px 0 4px;min-height:2.6em; /* ~2 lines */}
+/* --- Price + Variants --- */
+.cpc-toprow {
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:6px;
+  flex-wrap:nowrap;
+}
+.cpc-price {white-space:nowrap;}
+.cpc-price-now {font-weight:600;font-size:14px;color:#111;}
+.cpc-price-was {font-size:13px;margin-left:6px;opacity:.6;text-decoration:line-through;}
 
-/* --- Price + inline variants row --- */
-.cpc-toprow{display:flex;align-items:center;gap:10px;justify-content:space-between}
-.cpc-price{margin:0;font-size:16px;color:#555}
-.cpc-price-now{font-weight:600;color:#111}
-.cpc-price-was{margin-left:8px;opacity:.6;text-decoration:line-through}
-
-/* --- Inline selectors on the right (pill style) --- */
-.cpc-variants--inline{display:flex;gap:8px;flex-wrap:nowrap}
-.cpc-variant{display:flex}
-.cpc-select{
+.cpc-variants--inline {display:flex;gap:6px;}
+.cpc-select {
+  padding:4px 24px 4px 10px;
+  font-size:13px;
+  border:1px solid #ccc;
+  border-radius:999px;
+  background:#fff;
+  min-width:70px;
+  max-width:90px;
   appearance:none;
-  padding:8px 34px 8px 12px;
-  border:1px solid #d6d6d6;border-radius:999px;background:#fff;
-  font-size:14px;line-height:1.1;cursor:pointer;min-width:96px;max-width:140px
-}
-.cpc-select--pill{
   background-image:
     linear-gradient(45deg, transparent 50%, #111 50%),
-    linear-gradient(135deg, #111 50%, transparent 50%),
-    linear-gradient(to right, transparent, transparent);
+    linear-gradient(135deg, #111 50%, transparent 50%);
   background-position:
-    calc(100% - 18px) calc(50% - 3px),
-    calc(100% - 12px) calc(50% - 3px),
-    calc(100% - 2.2em) 50%;
-  background-size:6px 6px,6px 6px,1px 1.6em;
+    calc(100% - 15px) center,
+    calc(100% - 10px) center;
+  background-size:5px 5px,5px 5px;
   background-repeat:no-repeat;
+  cursor:pointer;
 }
 
 /* --- Buttons --- */
-.cpc-actions{display:flex;gap:12px;margin-top:8px}
-.cpc-btn{flex:1;display:inline-flex;justify-content:center;align-items:center;padding:12px;border-radius:10px;font-size:16px;text-decoration:none;border:1px solid transparent;cursor:pointer}
-.cpc-btn--outline{background:#fff;border-color:#111;color:#111}
-.cpc-btn--solid{background:#111;color:#fff}
-
-/* Utility (a11y) */
-.sr-only{position:absolute;left:-10000px;top:auto;width:1px;height:1px;overflow:hidden}
+.cpc-actions {
+  display:flex;gap:8px;margin-top:10px;
+}
+.cpc-btn {
+  flex:1;
+  font-size:13px;
+  padding:8px 10px;
+  border-radius:8px;
+  text-align:center;
+  cursor:pointer;
+  border:1px solid transparent;
+  transition:0.2s ease;
+}
+.cpc-btn--outline {
+  background:#fff;
+  border-color:#111;
+  color:#111;
+}
+.cpc-btn--solid {
+  background:#111;
+  color:#fff;
+}
+.cpc-btn--outline:hover {background:#111;color:#fff;}
+.cpc-btn--solid:hover {opacity:0.9;}
 </style>
