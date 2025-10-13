@@ -137,6 +137,25 @@
       }
     },
     "content_for_index": [],
+    "blocks": {
+      "14060646107696862457": {
+        "type": "shopify://apps/judge-me-reviews/blocks/judgeme_core/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+        "disabled": false,
+        "settings": {}
+      },
+      "4571859552318407796": {
+        "type": "shopify://apps/globo-color-swatch/blocks/app-embed-block/4394f710-096c-4021-bbde-8ebb26057c11",
+        "disabled": false,
+        "settings": {
+          "customCssGCW": ""
+        }
+      },
+      "3500920606369333595": {
+        "type": "shopify://apps/panda-size-chart/blocks/app-block/b314ec07-fb45-49e7-be52-6a624f491710",
+        "disabled": false,
+        "settings": {}
+      }
+    },
     "color_schemes": {
       "scheme-1": {
         "settings": {
@@ -184,7 +203,7 @@
       },
       "scheme-5": {
         "settings": {
-          "background": "#334fb4",
+          "background": "#000000",
           "background_gradient": "",
           "text": "#ffffff",
           "button": "#ffffff",
