@@ -290,6 +290,78 @@
         "padding_top": 36,
         "padding_bottom": 36
       }
+    },
+    "collapsible_content_wddDVB": {
+      "type": "collapsible-content",
+      "blocks": {
+        "collapsible_row_aQnVaW": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "What types of beachwear do you offer for women?",
+            "icon": "none",
+            "row_content": "<p>We offer a wide range of beachwear for women, which includes kaftans, bikinis, coverups, co-ord sets, stylish tops, short/long dresses, jumpsuits, and more.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_DdVybk": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Can I buy swimwear online from this collection?",
+            "icon": "none",
+            "row_content": "<p>Yes, you can easily buy any swimwear or beachwear online from our website -<a href=\"http://beachbum.in/\"><span style=\"text-decoration:underline\">beachbum.in</span></a>.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_LLtALN": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Do you offer quick-dry or travel-friendly fabrics?",
+            "icon": "none",
+            "row_content": "<p>Yes, our products are specially designed to offer high comfort during travel or while chilling on the beach. The fabric of all our beachwear is breathable and dries quickly after getting wet.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_KydcEb": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "What materials are used in your swimwear and resort wear?",
+            "icon": "none",
+            "row_content": "<p>We use high-quality fabrics, such as pure cotton or viscose, in our swimwear, beachwear, and resort wear.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_8ayrfX": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "What is your return policy?",
+            "icon": "none",
+            "row_content": "<p>We offer a return (no refunds, exchanges only) for defective or damaged items. You can check out our detailed return policy at<a href=\"https://beachbum.in/pages/returns-exchanges\"><span style=\"text-decoration:underline\">https://beachbum.in/pages/returns-exchanges</span></a>.</p>",
+            "page": ""
+          }
+        }
+      },
+      "block_order": [
+        "collapsible_row_aQnVaW",
+        "collapsible_row_DdVybk",
+        "collapsible_row_LLtALN",
+        "collapsible_row_KydcEb",
+        "collapsible_row_8ayrfX"
+      ],
+      "name": "t:sections.collapsible_content.presets.name",
+      "settings": {
+        "caption": "",
+        "heading": "Frequently Asked Questions",
+        "heading_size": "h1",
+        "heading_alignment": "center",
+        "layout": "none",
+        "container_color_scheme": "",
+        "color_scheme": "",
+        "open_first_collapsible_row": false,
+        "image_ratio": "adapt",
+        "desktop_layout": "image_second",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
     }
   },
   "order": [
@@ -299,6 +371,7 @@
     "featured_collection_UTcxPP",
     "1760331270a31fa023",
     "grid_gallery_Tn3TXQ",
-    "featured_blog_FJcYQV"
+    "featured_blog_FJcYQV",
+    "collapsible_content_wddDVB"
   ]
 }
