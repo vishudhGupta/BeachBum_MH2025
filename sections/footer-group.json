@@ -32,6 +32,9 @@
         "heading_ycexrK",
         "text_xnpryP"
       ],
+      "custom_css": [
+        ".rich-text__blocks{max-width: 100%;}"
+      ],
       "name": "t:sections.rich-text.presets.name",
       "settings": {
         "desktop_content_position": "center",
