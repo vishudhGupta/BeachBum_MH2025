@@ -375,3 +375,66 @@ slider-component.slider-component-full-width {
 .slider-button--prev:not([disabled]):hover .icon {
   transform: rotate(90deg) scale(1.1);
 }
+
+/* === SIDE ARROWS (OVERRIDE) ========================================= */
+/* 1) Make the buttons overlay the slider and sit at the sides */
+slider-component { position: relative; } /* already present, keep it */
+
+slider-component .slider-buttons {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  transform: translateY(-50%);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  pointer-events: none;            /* container doesn't catch clicks */
+  padding: 0 8px;
+  z-index: 2;
+}
+
+/* 2) Ensure buttons always show (override Dawn’s “display:none” rules) */
+slider-component .slider + .slider-buttons { display: flex !important; }
+.slider--mobile + .slider-buttons,
+.slider--desktop:not(.slider--tablet) + .slider-buttons,
+.slider:not(.slider--everywhere):not(.slider--desktop) + .slider-buttons {
+  display: flex !important;
+}
+
+/* 3) Hide the middle counter (optional) */
+slider-component .slider-buttons .slider-counter { display: none !important; }
+
+/* 4) Button look & feel */
+slider-component .slider-button {
+  pointer-events: auto;            /* buttons remain clickable */
+  width: 44px;
+  height: 44px;
+  border-radius: 9999px;
+  display: grid;
+  place-items: center;
+  background: rgba(0,0,0,.72);
+  color: #fff;
+  border: 1px solid rgba(255,255,255,.5);
+  box-shadow: 0 4px 10px rgba(0,0,0,.25);
+  transition: transform .15s ease, filter .15s ease, background .15s ease;
+}
+slider-component .slider-button:hover { filter: brightness(1.1); transform: scale(1.05); }
+slider-component .slider-button:focus { outline: 2px solid rgba(255,255,255,.6); outline-offset: 2px; }
+
+/* caret size */
+slider-component .slider-button .svg-wrapper svg,
+slider-component .slider-button .icon { width: 18px; height: 18px; }
+
+/* 5) Desktop: nudge slightly outside the slider for a clean look */
+@media (min-width: 990px){
+  slider-component .slider-buttons { padding: 0; }
+  slider-component .slider-button--prev { margin-left: 29px; }
+  slider-component .slider-button--next { margin-right: 29px; }
+}
+
+/* 6) Mobile: keep inside bounds and slightly smaller */
+@media (max-width: 989px){
+  slider-component .slider-button { width: 36px; height: 36px; border: 1px solid rgba(255,255,255,.35); }
+  slider-component .slider-buttons { padding: 0 6px; }
+}

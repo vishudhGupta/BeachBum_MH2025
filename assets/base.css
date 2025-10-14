@@ -3754,9 +3754,9 @@ details-disclosure > details {
      even inside Dawn's .page-width container */
   .bb-header__search .custom-search{
     width: 100vw;
-    max-width: 100vw;
+    /* max-width: 100vw;
     margin-left: calc(50% - 50vw);
-    margin-right: calc(50% - 50vw);
+    margin-right: calc(50% - 50vw); */
   }
 
   /* Optional: make the corners a touch squarer on mobile */
