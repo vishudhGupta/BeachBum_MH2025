@@ -240,7 +240,7 @@
           "settings": {
             "image": "shopify://shop_images/Group_33642.png",
             "caption": "",
-            "link": ""
+            "link": "shopify://collections/all-womens-beachwear"
           }
         },
         "image_7B3LmL": {
@@ -248,7 +248,7 @@
           "settings": {
             "image": "shopify://shop_images/Group_33644.png",
             "caption": "",
-            "link": ""
+            "link": "shopify://collections/all-mens-resort-wear"
           }
         },
         "image_JkbzAr": {
@@ -256,7 +256,7 @@
           "settings": {
             "image": "shopify://shop_images/Group_33643.png",
             "caption": "",
-            "link": ""
+            "link": "shopify://collections/all-women-resort-wear"
           }
         },
         "image_8NE3G6": {
@@ -264,7 +264,7 @@
           "settings": {
             "image": "shopify://shop_images/Group_33645.png",
             "caption": "",
-            "link": ""
+            "link": "shopify://collections/bags"
           }
         }
       },
