@@ -9,6 +9,38 @@
  */
 {
   "sections": {
+    "main_banner_slider_BgD6qP": {
+      "type": "main-banner-slider",
+      "blocks": {
+        "slide_zNPcNK": {
+          "type": "slide",
+          "settings": {
+            "desktop_image": "shopify://shop_images/Subtitle_17_1_1.png",
+            "mobile_image": "shopify://shop_images/Untitled_design_10_1.png",
+            "alt_text": "",
+            "link": "shopify://collections/new-in"
+          }
+        },
+        "slide_epyrpw": {
+          "type": "slide",
+          "settings": {
+            "desktop_image": "shopify://shop_images/Subtitle_17_1_1.png",
+            "mobile_image": "shopify://shop_images/Untitled_design_10_1.png",
+            "alt_text": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "slide_zNPcNK",
+        "slide_epyrpw"
+      ],
+      "name": "Banner Slider (Auto, Responsive)",
+      "settings": {
+        "color_scheme": "",
+        "full_width": true
+      }
+    },
     "featured_collection": {
       "type": "featured-collection",
       "custom_css": [
@@ -127,68 +159,78 @@
         "padding_bottom": 36
       }
     },
-    "1760331270a31fa023": {
-      "type": "_blocks",
+    "custom_shop_the_look_WkCAgn": {
+      "type": "custom-shop-the-look",
       "blocks": {
-        "ai_gen_block_37ba5c2_68kq8y": {
-          "type": "ai_gen_block_37ba5c2",
+        "look_iNrEtY": {
+          "type": "look",
           "settings": {
-            "heading": "Shop the Look",
-            "subtitle": "Click the hotspots to discover featured products",
-            "heading_alignment": "center",
-            "button_text": "Shop Now",
-            "model_image": "shopify://shop_images/Untitled-1gjhg.webp",
-            "image_border_radius": 12,
-            "hotspot_size": 50,
-            "hotspot_color": "#ffffff",
-            "hotspot_border_color": "#121212",
-            "hotspot_icon_color": "#121212",
-            "hotspot_active_color": "#121212",
-            "hotspot_active_border_color": "#121212",
-            "hotspot_active_icon_color": "#ffffff",
-            "hotspot_1_enabled": true,
-            "hotspot_1_x": 30,
-            "hotspot_1_y": 27,
-            "hotspot_1_product": "cordelia-blue-and-white-cut-off-hoodie-dress",
-            "hotspot_2_enabled": true,
-            "hotspot_2_x": 51,
-            "hotspot_2_y": 49,
-            "hotspot_2_product": "avisa-multi-pastel-coloured-beaded-bracellet",
-            "hotspot_3_enabled": true,
-            "hotspot_3_x": 63,
-            "hotspot_3_y": 91,
-            "hotspot_3_product": "miriam-terry-towel-slip-on-chappal",
-            "hotspot_4_enabled": true,
-            "hotspot_4_x": 19,
-            "hotspot_4_y": 51,
-            "hotspot_4_product": "dylan-yellow-cotton-terry-w-dobby-checkered-mini-bag",
-            "hotspot_5_enabled": true,
-            "hotspot_5_x": 45,
-            "hotspot_5_y": 80,
-            "hotspot_5_product": "cove-yellow-shaded-cotton-terry-towel-tote-bag",
-            "background_color": "#ffffff",
-            "heading_color": "#121212",
-            "subtitle_color": "#121212",
-            "product_section_bg": "#f8f8f8",
-            "product_title_color": "#121212",
-            "product_price_color": "#121212",
-            "product_description_color": "#666666",
-            "button_bg_color": "#121212",
-            "button_text_color": "#ffffff",
-            "button_hover_bg_color": "#333333",
-            "button_hover_text_color": "#ffffff",
-            "heading_size": 36,
-            "subtitle_size": 16,
-            "product_section_radius": 16,
-            "button_border_radius": 8
-          },
-          "blocks": {}
+            "desktop_image": "shopify://shop_images/Untitled-1gjhg.webp",
+            "mobile_image": "shopify://shop_images/Untitled-1gjhg.webp",
+            "alt_text": ""
+          }
+        },
+        "pin_XbnMHm": {
+          "type": "pin",
+          "settings": {
+            "look_ref": 1,
+            "product": "cordelia-blue-and-white-cut-off-hoodie-dress",
+            "pos_x": 32,
+            "pos_y": 31
+          }
+        },
+        "pin_UHrBBY": {
+          "type": "pin",
+          "settings": {
+            "look_ref": 1,
+            "product": "avisa-multi-pastel-coloured-beaded-bracellet",
+            "pos_x": 50,
+            "pos_y": 48
+          }
+        },
+        "pin_fGLz7B": {
+          "type": "pin",
+          "settings": {
+            "look_ref": 1,
+            "product": "dylan-yellow-cotton-terry-w-dobby-checkered-mini-bag",
+            "pos_x": 18,
+            "pos_y": 50
+          }
+        },
+        "pin_EiM8GA": {
+          "type": "pin",
+          "settings": {
+            "look_ref": 1,
+            "product": "cove-yellow-shaded-cotton-terry-towel-tote-bag",
+            "pos_x": 47,
+            "pos_y": 75
+          }
+        },
+        "pin_jp7DfJ": {
+          "type": "pin",
+          "settings": {
+            "look_ref": 1,
+            "product": "miriam-terry-towel-slip-on-chappal",
+            "pos_x": 68,
+            "pos_y": 92
+          }
         }
       },
       "block_order": [
-        "ai_gen_block_37ba5c2_68kq8y"
+        "look_iNrEtY",
+        "pin_XbnMHm",
+        "pin_UHrBBY",
+        "pin_fGLz7B",
+        "pin_EiM8GA",
+        "pin_jp7DfJ"
       ],
-      "settings": {}
+      "name": "Shop the Look",
+      "settings": {
+        "heading": "Shop The Look",
+        "subheading": "Discover curated looks and shop your favorite styles.",
+        "color_scheme": "",
+        "full_width": false
+      }
     },
     "grid_gallery_Tn3TXQ": {
       "type": "grid-gallery",
@@ -340,10 +382,11 @@
     }
   },
   "order": [
+    "main_banner_slider_BgD6qP",
     "featured_collection",
     "grid_gallery_JEWKBW",
     "featured_collection_UTcxPP",
-    "1760331270a31fa023",
+    "custom_shop_the_look_WkCAgn",
     "grid_gallery_Tn3TXQ",
     "featured_blog_FJcYQV",
     "collapsible_content_wddDVB"
