@@ -33,7 +33,7 @@
         "text_xnpryP"
       ],
       "custom_css": [
-        ".rich-text__blocks{max-width: 100%;}"
+        ".rich-text__blocks {max-width: 100%;}"
       ],
       "name": "t:sections.rich-text.presets.name",
       "settings": {
@@ -43,6 +43,26 @@
         "full_width": true,
         "padding_top": 40,
         "padding_bottom": 52
+      }
+    },
+    "custom_footer_acAVB8": {
+      "type": "custom-footer",
+      "name": "Footer – Exact",
+      "settings": {
+        "footer_logo": "shopify://shop_images/Untitled_design_2_1.png",
+        "color_scheme": "",
+        "about_title": "About us",
+        "about_menu": "footer-about",
+        "categories_title": "Categories",
+        "categories_menu": "category",
+        "care_title": "Customer Care",
+        "care_menu": "footer-legal",
+        "follow_title": "Follow us",
+        "show_newsletter": true,
+        "nl_title": "Get the News Letter",
+        "nl_placeholder": "Your Email",
+        "nl_button_label": "Sign up",
+        "copyright_text": "Proudly made in India with Love"
       }
     },
     "footer": {
@@ -75,6 +95,7 @@
         "footer-1",
         "link_list_gtXbVd"
       ],
+      "disabled": true,
       "settings": {
         "color_scheme": "scheme-5",
         "newsletter_enable": true,
@@ -93,6 +114,7 @@
   },
   "order": [
     "rich_text_EUwHEH",
+    "custom_footer_acAVB8",
     "footer"
   ]
 }
