@@ -64,48 +64,18 @@
           "disabled": true,
           "settings": {}
         },
+        "custom_liquid_WMBtzk": {
+          "type": "custom_liquid",
+          "settings": {
+            "custom_liquid": "{% render 'product-tabs-info' %}"
+          }
+        },
         "collapsible_tab_hANLdV": {
           "type": "collapsible_tab",
           "settings": {
             "heading": "Description",
             "icon": "clipboard",
             "content": "{{ product.description }}",
-            "page": ""
-          }
-        },
-        "collapsible-row-0": {
-          "type": "collapsible_tab",
-          "settings": {
-            "heading": "Materials",
-            "icon": "leather",
-            "content": "",
-            "page": ""
-          }
-        },
-        "collapsible-row-1": {
-          "type": "collapsible_tab",
-          "settings": {
-            "heading": "Shipping & Returns",
-            "icon": "truck",
-            "content": "",
-            "page": ""
-          }
-        },
-        "collapsible-row-2": {
-          "type": "collapsible_tab",
-          "settings": {
-            "heading": "Dimensions",
-            "icon": "ruler",
-            "content": "",
-            "page": ""
-          }
-        },
-        "collapsible-row-3": {
-          "type": "collapsible_tab",
-          "settings": {
-            "heading": "Care Instructions",
-            "icon": "heart",
-            "content": "",
             "page": ""
           }
         },
@@ -126,11 +96,8 @@
         "text_9C4FKy",
         "buy_buttons",
         "description",
+        "custom_liquid_WMBtzk",
         "collapsible_tab_hANLdV",
-        "collapsible-row-0",
-        "collapsible-row-1",
-        "collapsible-row-2",
-        "collapsible-row-3",
         "share"
       ],
       "settings": {
