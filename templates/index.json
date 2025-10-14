@@ -282,7 +282,7 @@
     "featured_blog_FJcYQV": {
       "type": "featured-blog",
       "custom_css": [
-        ".slider-buttons{display: none;}"
+        ".slider-buttons {display: none!important;}"
       ],
       "name": "t:sections.featured-blog.presets.name",
       "settings": {
