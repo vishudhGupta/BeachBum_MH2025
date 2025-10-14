@@ -60,17 +60,10 @@
             "heading": "{{ collection.metafields.custom.top_heading.value }}",
             "heading_size": "h1"
           }
-        },
-        "text_pDJmyr": {
-          "type": "text",
-          "settings": {
-            "text": "{{ collection.metafields.custom.top_desc | metafield_tag }}"
-          }
         }
       },
       "block_order": [
-        "heading_naVTbC",
-        "text_pDJmyr"
+        "heading_naVTbC"
       ],
       "custom_css": [
         ".rich-text__blocks {max-width: 100%;}"
