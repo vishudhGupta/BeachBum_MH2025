@@ -9,40 +9,6 @@
  */
 {
   "sections": {
-    "1759927884ab2affae": {
-      "type": "_blocks",
-      "blocks": {
-        "ai_gen_block_53e5199_RJf6eq": {
-          "type": "ai_gen_block_53e5199",
-          "settings": {
-            "autoplay": true,
-            "autoplay_speed": 5,
-            "desktop_height": 800,
-            "mobile_height": 325,
-            "border_radius": 0,
-            "slide_1_enabled": true,
-            "slide_1_desktop_image": "shopify://shop_images/Title_5_1.png",
-            "slide_1_mobile_image": "shopify://shop_images/Snapinsta.app_341136431_1273115053584169_4716066094816428566_n_1080_1.png",
-            "slide_1_url": "",
-            "slide_2_enabled": false,
-            "slide_2_desktop_image": "shopify://shop_images/vv.jpg",
-            "slide_2_mobile_image": "shopify://shop_images/Untitled_design_3.jpg",
-            "slide_2_url": "",
-            "slide_3_enabled": false,
-            "slide_3_url": "",
-            "slide_4_enabled": false,
-            "slide_4_url": "",
-            "slide_5_enabled": false,
-            "slide_5_url": ""
-          },
-          "blocks": {}
-        }
-      },
-      "block_order": [
-        "ai_gen_block_53e5199_RJf6eq"
-      ],
-      "settings": {}
-    },
     "featured_collection": {
       "type": "featured-collection",
       "custom_css": [
@@ -282,7 +248,7 @@
     "featured_blog_FJcYQV": {
       "type": "featured-blog",
       "custom_css": [
-        ".slider-buttons {display: none!important;}"
+        ".slider-buttons {display: none !important;}"
       ],
       "name": "t:sections.featured-blog.presets.name",
       "settings": {
@@ -374,7 +340,6 @@
     }
   },
   "order": [
-    "1759927884ab2affae",
     "featured_collection",
     "grid_gallery_JEWKBW",
     "featured_collection_UTcxPP",
