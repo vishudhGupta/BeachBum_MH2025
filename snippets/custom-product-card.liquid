@@ -1,5 +1,5 @@
 {% comment %}
-  Custom Product Card — Equal height + ₹ symbol + compact inline variants
+  Custom Product Card — with collection-page mobile tweaks for Dawn
 {% endcomment %}
 
 {% liquid
@@ -26,7 +26,13 @@
   endif
 %}
 
-<div class="cpc-card" id="{{ card_id }}">
+{% if request.page_type == 'collection' %}
+  {% assign on_collection = true %}
+{% else %}
+  {% assign on_collection = false %}
+{% endif %}
+
+<div class="cpc-card {% if on_collection %}cpc--collection{% endif %}" id="{{ card_id }}">
   <div class="cpc-imgwrap">
     {% if has_sale %}
       <span class="cpc-badge">{{ discount_pct }}% off</span>
@@ -47,43 +53,44 @@
     <h3 class="cpc-title">{{ p.title }}</h3>
 
     <form method="post" action="/cart/add" class="cpc-form" id="{{ card_id }}-form">
-      <div class="cpc-toprow">
-        <div class="cpc-price">
-          {% if has_sale %}
-            <span class="cpc-price-now">
-              {{ price_now | money_without_trailing_zeros | replace: 'Rs.', '₹' | replace: 'Rs', '₹' }}
-            </span>
-            <span class="cpc-price-was">
-              {{ price_was | money_without_trailing_zeros | replace: 'Rs.', '₹' | replace: 'Rs', '₹' }}
-            </span>
-          {% else %}
-            <span class="cpc-price-now">
-              {{ price_now | money_without_trailing_zeros | replace: 'Rs.', '₹' | replace: 'Rs', '₹' }}
-            </span>
-          {% endif %}
-        </div>
-
-        {% unless p.has_only_default_variant %}
-          <div class="cpc-variants cpc-variants--inline">
-            {% for option in p.options_with_values %}
-              {% assign opt_handle = option.name | handleize %}
-              <select
-                id="{{ card_id }}-opt-{{ opt_handle }}"
-                class="cpc-select cpc-select--pill"
-                name="options[{{ option.name }}]"
-                data-option-index="{{ forloop.index0 }}"
-              >
-                {% for value in option.values %}
-                  <option value="{{ value | escape }}">{{ value }}</option>
-                {% endfor %}
-              </select>
-            {% endfor %}
-          </div>
-        {% endunless %}
+      <!-- Price -->
+      <div class="cpc-price">
+        {% if has_sale %}
+          <span class="cpc-price-now">
+            {{ price_now | money_without_trailing_zeros | replace: 'Rs.', '₹' | replace: 'Rs', '₹' }}
+          </span>
+          <span class="cpc-price-was">
+            {{ price_was | money_without_trailing_zeros | replace: 'Rs.', '₹' | replace: 'Rs', '₹' }}
+          </span>
+        {% else %}
+          <span class="cpc-price-now">
+            {{ price_now | money_without_trailing_zeros | replace: 'Rs.', '₹' | replace: 'Rs', '₹' }}
+          </span>
+        {% endif %}
       </div>
+
+      <!-- Variants -->
+      {% unless p.has_only_default_variant %}
+        <div class="cpc-variants cpc-variants--inline">
+          {% for option in p.options_with_values %}
+            {% assign opt_handle = option.name | handleize %}
+            <select
+              id="{{ card_id }}-opt-{{ opt_handle }}"
+              class="cpc-select cpc-select--pill"
+              name="options[{{ option.name }}]"
+              data-option-index="{{ forloop.index0 }}"
+            >
+              {% for value in option.values %}
+                <option value="{{ value | escape }}">{{ value }}</option>
+              {% endfor %}
+            </select>
+          {% endfor %}
+        </div>
+      {% endunless %}
 
       <input type="hidden" name="id" value="{{ p.variants.first.id }}">
 
+      <!-- Buttons -->
       <div class="cpc-actions">
         <button type="submit" name="add" class="cpc-btn cpc-btn--outline">Add to Cart</button>
         <a class="cpc-btn cpc-btn--solid" id="{{ card_id }}-buynow" href="/cart/{{ p.variants.first.id }}:1">Buy Now</a>
@@ -186,15 +193,9 @@
   }
 
   /* --- Price + Variants --- */
-  .cpc-toprow {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 6px;
-    flex-wrap: nowrap;
-  }
   .cpc-price {
     white-space: nowrap;
+    margin-bottom: 6px;
   }
   .cpc-price-now {
     font-weight: 600;
@@ -207,7 +208,6 @@
     opacity: 0.6;
     text-decoration: line-through;
   }
-
   .cpc-variants--inline {
     display: flex;
     gap: 6px;
@@ -231,7 +231,6 @@
 
   /* --- Buttons --- */
   .cpc-actions {
-    {% comment %} flex-direction: column; {% endcomment %}
     display: flex;
     gap: 8px;
     margin-top: 10px;
@@ -262,5 +261,70 @@
   }
   .cpc-btn--solid:hover {
     opacity: 0.9;
+  }
+
+  /* --- Mobile tweaks ONLY for collection page --- */
+  @media screen and (max-width: 749px) {
+    .template-collection .cpc--collection .cpc-price {
+      order: -1;
+      width: 100%;
+    }
+    .template-collection .cpc--collection .cpc-variants {
+      width: 100%;
+      margin-top: 4px;
+    }
+    .template-collection .cpc--collection .cpc-actions {
+      flex-direction: row !important;
+      justify-content: space-between;
+      gap: 8px;
+      width: 100%;
+    }
+    .template-collection .cpc--collection .cpc-actions .cpc-btn {
+      flex: 1 1 50%;
+      text-align: center;
+      width: 100%;
+    }
+  }
+  /* === MOBILE COLLECTION PAGE: STACK BUTTONS VERTICALLY === */
+  @media screen and (max-width: 749px) {
+    /* Stack the buttons vertically */
+    .cpc--collection .cpc-actions {
+      display: flex !important;
+      flex-direction: column !important;
+      gap: 8px !important;
+      width: 100% !important;
+      margin-top: 10px !important;
+    }
+
+    .cpc--collection .cpc-actions .cpc-btn {
+      width: 100% !important;
+      font-size: 14px !important;
+      font-weight: 600 !important;
+      border-radius: 8px !important;
+      text-align: center !important;
+      padding: 10px 0 !important;
+      box-sizing: border-box;
+    }
+
+    /* Style consistency */
+    .cpc--collection .cpc-btn--outline {
+      background: #fff !important;
+      border: 1px solid #111 !important;
+      color: #111 !important;
+    }
+
+    .cpc--collection .cpc-btn--solid {
+      background: #111 !important;
+      color: #fff !important;
+    }
+
+    .cpc--collection .cpc-btn--outline:hover {
+      background: #111 !important;
+      color: #fff !important;
+    }
+
+    .cpc--collection .cpc-btn--solid:hover {
+      opacity: 0.9;
+    }
   }
 </style>
