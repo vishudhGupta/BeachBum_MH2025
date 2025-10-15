@@ -47,7 +47,7 @@
           "type": "heading",
           "settings": {
             "heading": "{{ collection.metafields.custom.top_heading.value }}",
-            "heading_size": "h1"
+            "heading_size": "h2"
           }
         }
       },
