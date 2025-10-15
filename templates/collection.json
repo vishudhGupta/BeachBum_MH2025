@@ -9,38 +9,27 @@
  */
 {
   "sections": {
-    "blocks_igzqNx": {
-      "type": "_blocks",
+    "main_banner_slider_BMfye9": {
+      "type": "main-banner-slider",
       "blocks": {
-        "ai_gen_block_53e5199_cCycC4": {
-          "type": "ai_gen_block_53e5199",
+        "slide_cNCNUX": {
+          "type": "slide",
           "settings": {
-            "autoplay": false,
-            "autoplay_speed": 5,
-            "desktop_height": 500,
-            "mobile_height": 300,
-            "border_radius": 0,
-            "slide_1_enabled": true,
-            "slide_1_desktop_image": "{{ closest.collection.metafields.custom.banner.value }}",
-            "slide_1_mobile_image": "{{ closest.collection.metafields.custom.banner_mobile.value }}",
-            "slide_1_url": "",
-            "slide_2_enabled": false,
-            "slide_2_url": "",
-            "slide_3_enabled": false,
-            "slide_3_url": "",
-            "slide_4_enabled": false,
-            "slide_4_url": "",
-            "slide_5_enabled": false,
-            "slide_5_url": ""
-          },
-          "blocks": {}
+            "desktop_image": "{{ collection.metafields.custom.banner.value }}",
+            "mobile_image": "{{ collection.metafields.custom.banner_mobile.value }}",
+            "alt_text": "",
+            "link": ""
+          }
         }
       },
       "block_order": [
-        "ai_gen_block_53e5199_cCycC4"
+        "slide_cNCNUX"
       ],
-      "name": "Banner slider",
-      "settings": {}
+      "name": "Banner Slider (Auto, Responsive)",
+      "settings": {
+        "color_scheme": "",
+        "full_width": true
+      }
     },
     "banner": {
       "type": "main-collection-banner",
@@ -100,7 +89,7 @@
     }
   },
   "order": [
-    "blocks_igzqNx",
+    "main_banner_slider_BMfye9",
     "banner",
     "rich_text_PajpmD",
     "product-grid"
