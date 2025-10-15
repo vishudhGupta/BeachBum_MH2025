@@ -156,6 +156,9 @@
         "heading_3AcrWm",
         "text_Q8xjXa"
       ],
+      "custom_css": [
+        ".media>img {object-fit: contain!important;}"
+      ],
       "name": "t:sections.image-with-text.presets.name",
       "settings": {
         "image": "shopify://shop_images/55739073.jpg",
