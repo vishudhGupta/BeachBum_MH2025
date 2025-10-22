@@ -15,19 +15,19 @@
         "slide_zNPcNK": {
           "type": "slide",
           "settings": {
-            "desktop_image": "shopify://shop_images/Subtitle_17_1_1.png",
-            "mobile_image": "shopify://shop_images/Untitled_design_10_1.png",
+            "desktop_image": "shopify://shop_images/Artboard_1_1_-min.jpg",
+            "mobile_image": "shopify://shop_images/Artboard_22-min.jpg",
             "alt_text": "",
-            "link": "shopify://collections/new-in"
+            "link": "shopify://collections/all-womens-beachwear"
           }
         },
         "slide_epyrpw": {
           "type": "slide",
           "settings": {
-            "desktop_image": "shopify://shop_images/Subtitle_17_1_1.png",
-            "mobile_image": "shopify://shop_images/Untitled_design_10_1.png",
+            "desktop_image": "shopify://shop_images/Artboard_18.jpg",
+            "mobile_image": "shopify://shop_images/Artboard_16_1fa3d392-01b6-480a-8a6a-ae6cf4d12418.jpg",
             "alt_text": "",
-            "link": ""
+            "link": "shopify://collections/mens-t-shirts"
           }
         }
       },
