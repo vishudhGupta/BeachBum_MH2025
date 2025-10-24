@@ -15,19 +15,19 @@
         "slide_zNPcNK": {
           "type": "slide",
           "settings": {
-            "desktop_image": "shopify://shop_images/Subtitle_17_1_1.png",
-            "mobile_image": "shopify://shop_images/Untitled_design_10_1.png",
+            "desktop_image": "shopify://shop_images/Artboard_1_1_-min.jpg",
+            "mobile_image": "shopify://shop_images/Artboard_22-min.jpg",
             "alt_text": "",
-            "link": "shopify://collections/new-in"
+            "link": "shopify://collections/all-womens-beachwear"
           }
         },
         "slide_epyrpw": {
           "type": "slide",
           "settings": {
-            "desktop_image": "shopify://shop_images/Subtitle_17_1_1.png",
-            "mobile_image": "shopify://shop_images/Untitled_design_10_1.png",
+            "desktop_image": "shopify://shop_images/Artboard_18.jpg",
+            "mobile_image": "shopify://shop_images/Artboard_16_1fa3d392-01b6-480a-8a6a-ae6cf4d12418.jpg",
             "alt_text": "",
-            "link": ""
+            "link": "shopify://collections/mens-t-shirts"
           }
         }
       },
@@ -39,6 +39,38 @@
       "settings": {
         "color_scheme": "",
         "full_width": true
+      }
+    },
+    "featured_collection_UTcxPP": {
+      "type": "featured-collection",
+      "custom_css": [
+        ".collection__title {text-align: center;}"
+      ],
+      "name": "t:sections.featured-collection.presets.name",
+      "settings": {
+        "collection": "best-sellers",
+        "products_to_show": 8,
+        "title": "Best Sellers",
+        "heading_size": "h1",
+        "description": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod .</p>",
+        "show_description": false,
+        "description_style": "body",
+        "columns_desktop": 4,
+        "enable_desktop_slider": true,
+        "full_width": false,
+        "show_view_all": false,
+        "view_all_style": "solid",
+        "color_scheme": "",
+        "image_ratio": "adapt",
+        "image_shape": "default",
+        "show_secondary_image": false,
+        "show_vendor": false,
+        "show_rating": false,
+        "quick_add": "none",
+        "columns_mobile": "1",
+        "swipe_on_mobile": true,
+        "padding_top": 36,
+        "padding_bottom": 36
       }
     },
     "featured_collection": {
@@ -125,38 +157,6 @@
         "maintain_aspect_ratio": true,
         "image_height": 260,
         "image_fit": "cover"
-      }
-    },
-    "featured_collection_UTcxPP": {
-      "type": "featured-collection",
-      "custom_css": [
-        ".collection__title {text-align: center;}"
-      ],
-      "name": "t:sections.featured-collection.presets.name",
-      "settings": {
-        "collection": "best-sellers",
-        "products_to_show": 8,
-        "title": "Best Sellers",
-        "heading_size": "h1",
-        "description": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod .</p>",
-        "show_description": false,
-        "description_style": "body",
-        "columns_desktop": 4,
-        "enable_desktop_slider": true,
-        "full_width": false,
-        "show_view_all": false,
-        "view_all_style": "solid",
-        "color_scheme": "",
-        "image_ratio": "adapt",
-        "image_shape": "default",
-        "show_secondary_image": false,
-        "show_vendor": false,
-        "show_rating": false,
-        "quick_add": "none",
-        "columns_mobile": "1",
-        "swipe_on_mobile": true,
-        "padding_top": 36,
-        "padding_bottom": 36
       }
     },
     "custom_shop_the_look_WkCAgn": {
@@ -383,9 +383,9 @@
   },
   "order": [
     "main_banner_slider_BgD6qP",
-    "featured_collection",
-    "grid_gallery_JEWKBW",
     "featured_collection_UTcxPP",
+    "grid_gallery_JEWKBW",
+    "featured_collection",
     "custom_shop_the_look_WkCAgn",
     "grid_gallery_Tn3TXQ",
     "featured_blog_FJcYQV",
