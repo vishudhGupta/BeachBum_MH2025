@@ -18,7 +18,7 @@
             "desktop_image": "shopify://shop_images/2_56f767ef-1619-4124-9e29-ddedf45459d6.png",
             "mobile_image": "shopify://shop_images/2m.jpg",
             "alt_text": "",
-            "link": "shopify://collections/all-womens-beachwear"
+            "link": "shopify://collections/best-sellers"
           }
         },
         "slide_epyrpw": {
@@ -27,7 +27,7 @@
             "desktop_image": "shopify://shop_images/3_c728f7d7-c43d-4d7a-8906-cc4763ef30d8.jpg",
             "mobile_image": "shopify://shop_images/3m.jpg",
             "alt_text": "",
-            "link": "shopify://collections/mens-t-shirts"
+            "link": "shopify://collections/best-sellers"
           }
         },
         "slide_i9QbW3": {
@@ -36,7 +36,7 @@
             "desktop_image": "shopify://shop_images/home_page_1.jpg",
             "mobile_image": "shopify://shop_images/m_87f30413-e9ba-4091-81b6-36bb64d519ea.jpg",
             "alt_text": "",
-            "link": ""
+            "link": "shopify://collections/best-sellers"
           }
         }
       },
