@@ -73,37 +73,6 @@
         "padding_bottom": 36
       }
     },
-    "featured_collection": {
-      "type": "featured-collection",
-      "custom_css": [
-        ".collection__title {text-align: center;}"
-      ],
-      "settings": {
-        "collection": "new-in",
-        "products_to_show": 8,
-        "title": "Latest Drops",
-        "heading_size": "h2",
-        "description": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod .</p>",
-        "show_description": false,
-        "description_style": "body",
-        "columns_desktop": 4,
-        "enable_desktop_slider": true,
-        "full_width": false,
-        "show_view_all": false,
-        "view_all_style": "solid",
-        "color_scheme": "scheme-1",
-        "image_ratio": "adapt",
-        "image_shape": "default",
-        "show_secondary_image": true,
-        "show_vendor": false,
-        "show_rating": false,
-        "quick_add": "none",
-        "columns_mobile": "1",
-        "swipe_on_mobile": true,
-        "padding_top": 28,
-        "padding_bottom": 36
-      }
-    },
     "grid_gallery_JEWKBW": {
       "type": "grid-gallery",
       "blocks": {
@@ -157,6 +126,37 @@
         "maintain_aspect_ratio": true,
         "image_height": 260,
         "image_fit": "cover"
+      }
+    },
+    "featured_collection": {
+      "type": "featured-collection",
+      "custom_css": [
+        ".collection__title {text-align: center;}"
+      ],
+      "settings": {
+        "collection": "new-in",
+        "products_to_show": 8,
+        "title": "Latest Drops",
+        "heading_size": "h2",
+        "description": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod .</p>",
+        "show_description": false,
+        "description_style": "body",
+        "columns_desktop": 4,
+        "enable_desktop_slider": true,
+        "full_width": false,
+        "show_view_all": false,
+        "view_all_style": "solid",
+        "color_scheme": "scheme-1",
+        "image_ratio": "adapt",
+        "image_shape": "default",
+        "show_secondary_image": true,
+        "show_vendor": false,
+        "show_rating": false,
+        "quick_add": "none",
+        "columns_mobile": "1",
+        "swipe_on_mobile": true,
+        "padding_top": 28,
+        "padding_bottom": 36
       }
     },
     "custom_shop_the_look_WkCAgn": {
@@ -289,6 +289,7 @@
     },
     "featured_blog_FJcYQV": {
       "type": "featured-blog",
+      "disabled": true,
       "custom_css": [
         ".slider-buttons {display: none !important;}"
       ],
@@ -368,7 +369,7 @@
       "settings": {
         "caption": "",
         "heading": "Frequently Asked Questions",
-        "heading_size": "h1",
+        "heading_size": "h2",
         "heading_alignment": "center",
         "layout": "none",
         "container_color_scheme": "",
