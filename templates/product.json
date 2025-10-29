@@ -15,7 +15,7 @@
         "custom_liquid_G4y3Wr": {
           "type": "custom_liquid",
           "settings": {
-            "custom_liquid": "{% render 'product-meta-tools', product: product %}"
+            "custom_liquid": "{% render 'product-meta', product: product %}"
           }
         },
         "title": {
