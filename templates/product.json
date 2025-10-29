@@ -141,7 +141,7 @@
         "collection": "best-sellers",
         "products_to_show": 8,
         "title": "Best Sellers",
-        "heading_size": "h1",
+        "heading_size": "h2",
         "description": "",
         "show_description": false,
         "description_style": "body",
