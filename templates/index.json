@@ -15,8 +15,8 @@
         "slide_zNPcNK": {
           "type": "slide",
           "settings": {
-            "desktop_image": "shopify://shop_images/Artboard_1_1_-min.jpg",
-            "mobile_image": "shopify://shop_images/Artboard_22-min.jpg",
+            "desktop_image": "shopify://shop_images/2_56f767ef-1619-4124-9e29-ddedf45459d6.png",
+            "mobile_image": "shopify://shop_images/2m.jpg",
             "alt_text": "",
             "link": "shopify://collections/all-womens-beachwear"
           }
@@ -24,16 +24,26 @@
         "slide_epyrpw": {
           "type": "slide",
           "settings": {
-            "desktop_image": "shopify://shop_images/Artboard_18.jpg",
-            "mobile_image": "shopify://shop_images/Artboard_16_1fa3d392-01b6-480a-8a6a-ae6cf4d12418.jpg",
+            "desktop_image": "shopify://shop_images/3_c728f7d7-c43d-4d7a-8906-cc4763ef30d8.jpg",
+            "mobile_image": "shopify://shop_images/3m.jpg",
             "alt_text": "",
             "link": "shopify://collections/mens-t-shirts"
+          }
+        },
+        "slide_i9QbW3": {
+          "type": "slide",
+          "settings": {
+            "desktop_image": "shopify://shop_images/home_page_1.jpg",
+            "mobile_image": "shopify://shop_images/m_87f30413-e9ba-4091-81b6-36bb64d519ea.jpg",
+            "alt_text": "",
+            "link": ""
           }
         }
       },
       "block_order": [
         "slide_zNPcNK",
-        "slide_epyrpw"
+        "slide_epyrpw",
+        "slide_i9QbW3"
       ],
       "name": "Banner Slider (Auto, Responsive)",
       "settings": {
