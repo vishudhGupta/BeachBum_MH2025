@@ -35,9 +35,11 @@
     <!-- Styling Tips -->
     <div id="pd-panel-2" class="pd-panel" role="tabpanel" aria-hidden="true" data-index="2">
       <div class="pd-card">
-        <h4 class="pd-h">Style Inspiration</h4>
-        <p class="pd-p">{{product.metafields.custom.styling_tips}}</p>
-      </div>
+       <h4 class="pd-h">Style Inspiration</h4>
+<div class="pd-p">
+  {{ product.metafields.custom.styling_tips | metafield_tag }}
+</div>
+
     </div>
   </div>
 </div>
