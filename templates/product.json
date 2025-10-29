@@ -77,12 +77,6 @@
             "content": "{{ product.description }}",
             "page": ""
           }
-        },
-        "share": {
-          "type": "share",
-          "settings": {
-            "share_label": "Share"
-          }
         }
       },
       "block_order": [
@@ -96,8 +90,7 @@
         "buy_buttons",
         "description",
         "custom_liquid_WMBtzk",
-        "collapsible_tab_hANLdV",
-        "share"
+        "collapsible_tab_hANLdV"
       ],
       "settings": {
         "enable_sticky_info": true,
