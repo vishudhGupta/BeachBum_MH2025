@@ -92,6 +92,9 @@
         "custom_liquid_WMBtzk",
         "collapsible_tab_hANLdV"
       ],
+      "custom_css": [
+        "@media screen and (max-width: 749px) {.slider-button{display: none !important; }}"
+      ],
       "settings": {
         "enable_sticky_info": true,
         "color_scheme": "",
