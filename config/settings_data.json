@@ -181,7 +181,7 @@
           "swym_collections_vertical_offset": 0,
           "swym_collections_horizontal_offset": 0,
           "swym_collections_button_size": 25,
-          "swym_collections_icon_color": "#ff0000",
+          "swym_collections_icon_color": "#000000",
           "swym_collections_product_link_selector": "a.cpc-imglink",
           "swym_collections_product_tile_selector": "li.grid__item",
           "enable_variant_selector": false,
