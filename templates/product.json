@@ -98,15 +98,6 @@
           "settings": {
             "custom_liquid": "{% render 'product-tabs-info' %}"
           }
-        },
-        "collapsible_tab_hANLdV": {
-          "type": "collapsible_tab",
-          "settings": {
-            "heading": "Description",
-            "icon": "clipboard",
-            "content": "{{ product.description }}",
-            "page": ""
-          }
         }
       },
       "block_order": [
@@ -124,8 +115,7 @@
         "custom_liquid_3brFEf",
         "custom_liquid_n7HMam",
         "description",
-        "custom_liquid_WMBtzk",
-        "collapsible_tab_hANLdV"
+        "custom_liquid_WMBtzk"
       ],
       "custom_css": [
         ".slider-button {display: none !important;}"
