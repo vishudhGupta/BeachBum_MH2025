@@ -1,0 +1,98 @@
+<!-- snippets/feature-badges.liquid — DUMMY VERSION -->
+<div class="fb-wrap" aria-label="Feature badges">
+  <ul class="fb-grid" role="list">
+
+    <li class="fb-item" role="listitem">
+      <span class="fb-icon" aria-hidden="true">
+        <!-- placeholder square -->
+        <svg width="16" height="16" viewBox="0 0 16 16" stroke="currentColor" fill="none">
+          <rect x="2" y="2" width="12" height="12" stroke-width="1.5"/>
+        </svg>
+      </span>
+      <p class="fb-text">Dummy Feature One</p>
+    </li>
+
+    <li class="fb-item" role="listitem">
+      <span class="fb-icon" aria-hidden="true">
+        <!-- placeholder circle -->
+        <svg width="16" height="16" viewBox="0 0 16 16" stroke="currentColor" fill="none">
+          <circle cx="8" cy="8" r="6" stroke-width="1.5"/>
+        </svg>
+      </span>
+      <p class="fb-text">Dummy Feature Two</p>
+    </li>
+
+    <li class="fb-item" role="listitem">
+      <span class="fb-icon" aria-hidden="true">
+        <!-- placeholder triangle -->
+        <svg width="16" height="16" viewBox="0 0 16 16" stroke="currentColor" fill="none">
+          <path d="M2 12L8 3l6 9H2z" stroke-width="1.5"/>
+        </svg>
+      </span>
+      <p class="fb-text">Dummy Feature Three</p>
+    </li>
+
+    <li class="fb-item" role="listitem">
+      <span class="fb-icon" aria-hidden="true">
+        <!-- placeholder star -->
+        <svg width="16" height="16" viewBox="0 0 16 16" stroke="currentColor" fill="none">
+          <path d="M8 2l2 4 4 .5-3 3 1 4-4-2-4 2 1-4-3-3 4-.5z" stroke-width="1.2"/>
+        </svg>
+      </span>
+      <p class="fb-text">Dummy Feature Four</p>
+    </li>
+
+  </ul>
+</div>
+
+<style>
+  :root {
+    --fb-border: rgba(34,34,34,0.12);
+    --fb-text: #6b6b6b;
+    --fb-bg: #ffffff;
+    --fb-radius: 6px;
+    --fb-gap: 12px;
+    --fb-icon-color: #9aa4ac;
+  }
+
+  .fb-wrap, .fb-wrap * { 
+    font-family: inherit; 
+    box-sizing: border-box; 
+  }
+
+  .fb-grid {
+    display: grid;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    gap: var(--fb-gap);
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .fb-item {
+    display: flex;
+    align-items: center;
+    border-radius: var(--fb-radius);
+    background: var(--fb-bg);
+    border: 1px solid var(--fb-border);
+    min-height: 44px;
+    padding: 8px 10px;
+    gap: 8px;
+  }
+
+  .fb-icon {
+    display: inline-grid;
+    place-items: center;
+    width: 32px;
+    height: 32px;
+    color: var(--fb-icon-color);
+  }
+
+  .fb-text {
+    margin: 0;
+    font-size: 14px;
+    color: var(--fb-text);
+    font-weight: 600;
+    line-height: 1.2;
+  }
+</style>
