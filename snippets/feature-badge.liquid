@@ -1,7 +1,6 @@
 <!-- snippets/feature-badges.liquid — DUMMY VERSION -->
 <div class="fb-wrap" aria-label="Feature badges">
   <ul class="fb-grid" role="list">
-
     <li class="fb-item" role="listitem">
       <span class="fb-icon" aria-hidden="true">
         <!-- placeholder square -->
@@ -21,7 +20,7 @@
     <li class="fb-item" role="listitem">
       <span class="fb-icon" aria-hidden="true">
         <!-- placeholder triangle -->
-       <img src="https://cdn.shopify.com/s/files/1/0806/6940/9581/files/Consciously_crafted.png?v=1763123801">
+        <img src="https://cdn.shopify.com/s/files/1/0806/6940/9581/files/Consciously_crafted.png?v=1763123801">
       </span>
       <p class="fb-text">Consciously crafted</p>
     </li>
@@ -29,27 +28,33 @@
     <li class="fb-item" role="listitem">
       <span class="fb-icon" aria-hidden="true">
         <!-- placeholder star -->
-       <img src="https://cdn.shopify.com/s/files/1/0806/6940/9581/files/Versatile.png?v=1763123801">
+        <img src="https://cdn.shopify.com/s/files/1/0806/6940/9581/files/Versatile.png?v=1763123801">
       </span>
       <p class="fb-text">Versatile</p>
     </li>
-
   </ul>
 </div>
 
 <style>
   :root {
-    --fb-border: rgba(34,34,34,0.12);
+    --fb-border: rgba(34, 34, 34, 0.12);
     --fb-text: #6b6b6b;
     --fb-bg: #ffffff;
     --fb-radius: 6px;
     --fb-gap: 12px;
     --fb-icon-color: #9aa4ac;
   }
+  .fb-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+  }
 
-  .fb-wrap, .fb-wrap * { 
-    font-family: inherit; 
-    box-sizing: border-box; 
+  .fb-wrap,
+  .fb-wrap * {
+    font-family: inherit;
+    box-sizing: border-box;
   }
 
   .fb-grid {
