@@ -135,7 +135,10 @@
         "custom_aspect_ratio": 1,
         "maintain_aspect_ratio": true,
         "image_height": 260,
-        "image_fit": "cover"
+        "image_fit": "cover",
+        "show_button": true,
+        "button_label": "View More",
+        "button_link": "shopify://pages/celebrity"
       }
     },
     "featured_collection": {
@@ -294,7 +297,10 @@
         "custom_aspect_ratio": 1,
         "maintain_aspect_ratio": true,
         "image_height": 260,
-        "image_fit": "cover"
+        "image_fit": "cover",
+        "show_button": false,
+        "button_label": "View More",
+        "button_link": ""
       }
     },
     "featured_blog_FJcYQV": {
