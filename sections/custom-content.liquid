@@ -1,0 +1,32 @@
+{% schema %}
+{
+  "name": "Custom Content Section",
+  "tag": "section",
+  "class": "section",
+  "settings": [],
+  "presets": [
+    {
+      "name": "Custom Content Section"
+    }
+  ]
+}
+{% endschema %}
+
+{% if request.page_type == 'collection' %}
+    <section class="custom-content-section">
+        <h2>{{ collection.metafields.custom.top_heading }}</h2>
+        <p>{{ collection.metafields.custom.top_desc | metafield_tag }}</p>
+    </section>
+    <section class="custom-content-section">
+        <h2>{{ collection.metafields.custom.bottom_heading }}</h2>
+        <p>{{ collection.metafields.custom.bottom_desc | metafield_tag }}</p>
+    </section>
+{% endif %}
+
+<style>
+    .custom-content-section {
+    padding: 20px;
+    background-color: #f9f9f9;
+    text-align: center;
+}
+</style>
