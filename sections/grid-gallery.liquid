@@ -18,19 +18,13 @@
       {%- endif -%}
     </div>
 
-    <div
-      class="grid-gallery__wrap"
-      style="--grid-gap: {{ section.settings.gap }}px; --aspect-ratio: {{ section.settings.custom_aspect_ratio }};"
-    >
+    <div class="grid-gallery__wrap"
+         style="--grid-gap: {{ section.settings.gap }}px; --aspect-ratio: {{ section.settings.custom_aspect_ratio }};">
       <ul class="grid-gallery__grid" role="list">
         {%- for block in section.blocks -%}
           <li class="grid-gallery__item" role="listitem" {{ block.shopify_attributes }}>
             {%- if block.settings.link != blank and block.settings.link != '#' and block.settings.link != '/' -%}
-              <a
-                href="{{ block.settings.link }}"
-                class="grid-gallery__link"
-                aria-label="{{ block.settings.caption | default: 'Gallery image' }}"
-              >
+              <a href="{{ block.settings.link }}" class="grid-gallery__link" aria-label="{{ block.settings.caption | default: 'Gallery image' }}">
             {%- endif -%}
 
             {% comment %}
@@ -55,29 +49,26 @@
               endif
             %}
 
-            <div
-              class="grid-gallery__image-wrap"
-              style="{% if section.settings.maintain_aspect_ratio == false %}height: {{ section.settings.image_height }}px;{% else %}padding-bottom: calc(100% / {{ aspect_ratio }});{% endif %}"
-            >
-              {% if block.settings.image != blank %}
-                <img
-                  src="{{ block.settings.image | image_url: width: 1200 }}"
-                  srcset="
-                    {{ block.settings.image | image_url: width: 360 }} 360w,
-                    {{ block.settings.image | image_url: width: 720 }} 720w,
-                    {{ block.settings.image | image_url: width: 1200 }} 1200w
-                  "
-                  sizes="(min-width: 750px) 25vw, 50vw"
-                  alt="{{ block.settings.image.alt | escape }}"
-                  loading="lazy"
-                  class="grid-gallery__image"
-                  style="object-fit: {{ section.settings.image_fit }};"
-                  width="{{ block.settings.image.width }}"
-                  height="{{ block.settings.image.height }}"
-                >
-              {% else %}
-                {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
-              {% endif %}
+            <div class="grid-gallery__image-wrap"
+                 style="{% if section.settings.maintain_aspect_ratio == false %}height: {{ section.settings.image_height }}px;{% else %}padding-bottom: calc(100% / {{ aspect_ratio }});{% endif %}">
+{% if block.settings.image != blank %}
+  <img
+    src="{{ block.settings.image | image_url: width: 1200 }}"
+    srcset="{{ block.settings.image | image_url: width: 360 }} 360w,
+            {{ block.settings.image | image_url: width: 720 }} 720w,
+            {{ block.settings.image | image_url: width: 1200 }} 1200w"
+    sizes="(min-width: 750px) 25vw, 50vw"
+    alt="{{ block.settings.image.alt | escape }}"
+    loading="lazy"
+    class="grid-gallery__image"
+    style="object-fit: {{ section.settings.image_fit }};"
+    width="{{ block.settings.image.width }}"
+    height="{{ block.settings.image.height }}"
+  />
+{% else %}
+  {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+{% endif %}
+
             </div>
 
             {% if block.settings.caption != blank %}
@@ -91,34 +82,44 @@
         {%- endfor -%}
       </ul>
     </div>
+    {%- if section.settings.show_button and section.settings.button_label != blank -%}
+  <div class="grid-gallery__button-wrap">
+    <a href="{{ section.settings.button_link }}" class="grid-gallery__button">
+      {{ section.settings.button_label }}
+    </a>
+  </div>
+{%- endif -%}
+
   </div>
 </section>
 
 <style>
-  /* Grid Gallery - self contained styles */
-  .grid-gallery {
-    box-sizing: border-box;
-    padding-top: 20px;
-    padding-bottom: 20px;
-  }
-  .grid-gallery__header {
-    text-align: center;
-    margin-bottom: 16px;
-  }
-  .grid-gallery__title {
-    margin: 0 0 8px;
-    font-weight: 700;
-  }
-  .grid-gallery__description {
-    max-width: 880px;
-    margin: 0 auto;
-    color: #666;
-  }
+  /* ===== View More Button ===== */
+.grid-gallery__button-wrap {
+  text-align: center;
+  margin-top: 24px;
+}
 
-  .grid-gallery__wrap {
-    --grid-gap: 16px;
-    box-sizing: border-box;
-  }
+.grid-gallery__button {
+     display: inline-block;
+    padding: 8px 21px;
+    background-color: #000000ff;
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
+    transition: background-color .3s 
+ease;
+}
+
+
+
+  /* Grid Gallery - self contained styles */
+  .grid-gallery { box-sizing: border-box; padding-top: 20px; padding-bottom: 20px; }
+  .grid-gallery__header { text-align: center; margin-bottom: 16px; }
+  .grid-gallery__title { margin: 0 0 8px; font-weight: 700; }
+  .grid-gallery__description { max-width: 880px; margin: 0 auto; color: #666; }
+
+  .grid-gallery__wrap { --grid-gap: 16px; box-sizing: border-box; }
 
   /* The grid itself */
   .grid-gallery__grid {
@@ -138,11 +139,7 @@
     }
   }
 
-  .grid-gallery__item {
-    box-sizing: border-box;
-    overflow: hidden;
-    display: block;
-  }
+  .grid-gallery__item { box-sizing: border-box; overflow: hidden; display: block; }
 
   /* image wrapper keeps aspect ratio or fixed height */
   .grid-gallery__image-wrap {
@@ -156,7 +153,7 @@
 
   /* when a fixed height is applied via inline style (maintain_aspect_ratio == false),
      ensure the wrapper behaves as expected */
-  .grid-gallery__image-wrap[style*='height:'] {
+  .grid-gallery__image-wrap[style*="height:"] {
     height: auto;
     min-height: 0;
   }
@@ -168,95 +165,79 @@
     height: 100%;
     display: block;
     object-fit: cover;
-    transition: transform 0.28s ease;
+    transition: transform .28s ease;
   }
 
   /* If using fixed-height image-wrap (no padding-bottom), make image static instead */
-  .grid-gallery__image-wrap[style*='height:'] .grid-gallery__image {
+  .grid-gallery__image-wrap[style*="height:"] .grid-gallery__image {
     position: static;
     width: 100%;
     height: auto;
   }
 
-  .grid-gallery__image-wrap:hover .grid-gallery__image {
-    transform: scale(1.03);
-  }
+  .grid-gallery__image-wrap:hover .grid-gallery__image { transform: scale(1.03); }
 
-  .grid-gallery__caption {
-    margin-top: 8px;
-    font-size: 14px;
-    color: #333;
-    text-align: left;
-  }
+  .grid-gallery__caption { margin-top: 8px; font-size: 14px; color: #333; text-align: left; }
 
   /* Link visuals */
-  .grid-gallery__link {
-    color: inherit;
-    text-decoration: none;
-    display: block;
-  }
+  .grid-gallery__link { color: inherit; text-decoration: none; display: block; }
 
   /* Small safety to avoid images causing overflow */
-  .grid-gallery__grid img {
-    max-width: 100%;
-    height: auto;
-    display: block;
-  }
+  .grid-gallery__grid img { max-width: 100%; height: auto; display: block; }
 
   /* ===== Ensure grid images fill full card height cleanly ===== */
 
-  /* 1) normal aspect-ratio mode (padding-bottom approach) */
-  .grid-gallery__image-wrap {
-    position: relative;
-    width: 100%;
-    overflow: hidden;
-    border-radius: 8px;
-    /* keep existing inline padding-bottom or height from Liquid */
-  }
+/* 1) normal aspect-ratio mode (padding-bottom approach) */
+.grid-gallery__image-wrap {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  border-radius: 8px;
+  /* keep existing inline padding-bottom or height from Liquid */
+}
 
-  /* image used in padding-bottom (aspect-ratio) wrappers */
-  .grid-gallery__image-wrap:not([style*='height:']) .grid-gallery__image {
-    position: absolute;
-    inset: 0; /* top:0; right:0; bottom:0; left:0; */
-    width: 100%;
-    height: 100%;
-    display: block;
-    object-fit: cover; /* fill while preserving aspect, cropped */
-  }
+/* image used in padding-bottom (aspect-ratio) wrappers */
+.grid-gallery__image-wrap:not([style*="height:"]) .grid-gallery__image {
+  position: absolute;
+  inset: 0;                /* top:0; right:0; bottom:0; left:0; */
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;       /* fill while preserving aspect, cropped */
+}
 
-  /* 2) fixed-height wrapper (when maintain_aspect_ratio == false)
+/* 2) fixed-height wrapper (when maintain_aspect_ratio == false)
    the wrapper will have inline `height: 260px` (or your chosen px). */
-  .grid-gallery__image-wrap[style*='height:'] {
-    /* ensure wrapper respects the inline height */
-    position: relative;
-    height: auto; /* keep the inline height, but ensure layout is stable */
-    min-height: 1px;
-  }
+.grid-gallery__image-wrap[style*="height:"] {
+  /* ensure wrapper respects the inline height */
+  position: relative;
+  height: auto; /* keep the inline height, but ensure layout is stable */
+  min-height: 1px;
+}
 
-  /* make image fill that fixed-height wrapper (no absolute positioning required) */
-  .grid-gallery__image-wrap[style*='height:'] .grid-gallery__image {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-  }
+/* make image fill that fixed-height wrapper (no absolute positioning required) */
+.grid-gallery__image-wrap[style*="height:"] .grid-gallery__image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
 
-  /* 3) small safety: avoid images reverting to intrinsic ratio and leaving white gaps */
-  .grid-gallery__grid img,
-  .grid-gallery__image {
-    max-width: 100%;
-    height: 100%;
-    display: block;
-    vertical-align: middle;
-  }
+/* 3) small safety: avoid images reverting to intrinsic ratio and leaving white gaps */
+.grid-gallery__grid img,
+.grid-gallery__image {
+  max-width: 100%;
+  height: 100%;
+  display: block;
+  vertical-align: middle;
+}
 
-  /* 4) ensure captions don't push image height unpredictably */
-  .grid-gallery__caption {
-    margin-top: 8px;
-    box-sizing: border-box;
-  }
+/* 4) ensure captions don't push image height unpredictably */
+.grid-gallery__caption { margin-top: 8px; box-sizing: border-box; }
+
+
 </style>
 
 {% schema %}
@@ -344,7 +325,25 @@
         { "value": "fill", "label": "Fill" }
       ],
       "default": "cover"
-    }
+    },
+{
+  "type": "checkbox",
+  "id": "show_button",
+  "label": "Show 'View More' button",
+  "default": false
+},
+{
+  "type": "text",
+  "id": "button_label",
+  "label": "Button label",
+  "default": "View More"
+},
+{
+  "type": "url",
+  "id": "button_link",
+  "label": "Button link"
+}
+
   ],
   "blocks": [
     {
@@ -361,7 +360,12 @@
     {
       "name": "Grid Gallery (2/4)",
       "category": "Gallery",
-      "blocks": [{ "type": "image" }, { "type": "image" }, { "type": "image" }, { "type": "image" }]
+      "blocks": [
+        { "type": "image" },
+        { "type": "image" },
+        { "type": "image" },
+        { "type": "image" }
+      ]
     }
   ]
 }
