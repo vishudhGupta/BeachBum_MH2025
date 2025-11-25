@@ -60,7 +60,7 @@
       "settings": {
         "collection": "best-sellers",
         "products_to_show": 8,
-        "title": "OUR BESTSELLERS - Hot Selling Now",
+        "title": "<strong>OUR BESTSELLERS - Hot Selling Now</strong>",
         "heading_size": "h2",
         "description": "<p>Explore our best-selling beachwear and resort wear collections, ranging from minimal to bold styles.</p>",
         "show_description": false,
@@ -149,7 +149,7 @@
       "settings": {
         "collection": "new-in",
         "products_to_show": 8,
-        "title": "Latest Drops",
+        "title": "<strong>Latest Drops</strong>",
         "heading_size": "h2",
         "description": "<p>Check out our latest and most trending designs in men’s and women’s beachwear.</p>",
         "show_description": false,
@@ -169,7 +169,7 @@
         "columns_mobile": "1",
         "swipe_on_mobile": true,
         "padding_top": 28,
-        "padding_bottom": 36
+        "padding_bottom": 12
       }
     },
     "custom_shop_the_look_WkCAgn": {
@@ -239,7 +239,7 @@
       ],
       "name": "Shop the Look",
       "settings": {
-        "heading": "Shop The Look",
+        "heading": "<b>Shop The Look</b>",
         "subheading": "Discover curated looks and shop your favorite styles.",
         "color_scheme": "",
         "full_width": false
@@ -384,7 +384,7 @@
       "name": "t:sections.collapsible_content.presets.name",
       "settings": {
         "caption": "",
-        "heading": "Frequently Asked Questions",
+        "heading": "<strong>Frequently Asked Questions</strong>",
         "heading_size": "h2",
         "heading_alignment": "center",
         "layout": "none",
