@@ -125,6 +125,9 @@
         "image_fqKQ8x",
         "image_zAXwb6"
       ],
+      "custom_css": [
+        ".grid-gallery {padding-bottom: 0px !important;}"
+      ],
       "name": "Grid Gallery (2/4)",
       "settings": {
         "title": "Celebrities in BeachBum",
