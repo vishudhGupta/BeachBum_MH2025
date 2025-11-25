@@ -3621,7 +3621,7 @@ details-disclosure > details {
 .bb-header__search .custom-search__input { height: 38px; }
 .bb-header__search .custom-search__button { height: 38px; width: 42px; min-width: 42px; }
 .bb-header__nav { margin-top: 10px; }
-.bb-icons { display: inline-flex; align-items: center; gap: 16px; }
+.bb-icons { display: inline-flex; align-items: center; }
 
 /* Mobile */
 @media (max-width: 989px) {
@@ -3726,7 +3726,7 @@ details-disclosure > details {
   .bb-icons{
     display: inline-flex;
     align-items: center;
-    gap: 14px;
+    /* gap: 14px; */
     flex-wrap: nowrap;
     white-space: nowrap;
   }
