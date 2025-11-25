@@ -3649,7 +3649,7 @@ details-disclosure > details {
 .bb-header__logo { grid-area: logo; }
 .bb-header__search { grid-area: search; }
 .bb-header__right { grid-area: icons; justify-self: end; }
-.bb-icons { display: inline-flex; align-items: center; gap: 16px; }
+.bb-icons { display: inline-flex; align-items: center; gap: 0px; }
 
 .bb-header__nav { margin-top: 10px; }
 
