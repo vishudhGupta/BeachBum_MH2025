@@ -1,6 +1,6 @@
 <!-- USP / Features — dummy version -->
 <style>
-  :root{
+  :root {
     --usp-accent: #111827;
     --usp-muted: #6b7280;
     --usp-gap: 2px;
@@ -8,29 +8,31 @@
     --usp-font-size: 13px;
   }
 
-  .usp-features { 
+  .usp-features {
     font-family: inherit;
     display: grid;
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr 1fr;
     gap: var(--usp-gap);
     margin: 8px 0;
     font-size: var(--usp-font-size);
     color: var(--usp-accent);
-    max-width: 70%;
+    max-width: 80%;
   }
 
-  @media (min-width: 750px){
-    .usp-features{ grid-template-columns: repeat(2, 1fr); }
+  @media (min-width: 750px) {
+    .usp-features {
+      grid-template-columns: repeat(2, 1fr);
+    }
   }
 
-  .usp-item{
+  .usp-item {
     display: flex;
     gap: 8px;
     align-items: center;
     padding: 6px 0px;
   }
 
-  .usp-icon{
+  .usp-icon {
     flex: 0 0 32px;
     width: 32px;
     height: 32px;
@@ -40,49 +42,72 @@
     border-radius: 6px;
   }
 
-  .usp-icon img{ max-width: 20px; max-height: 20px; display:block; }
+  .usp-icon img {
+    max-width: 20px;
+    max-height: 20px;
+    display: block;
+  }
 
-  .usp-text{ 
+  .usp-text {
     color: var(--usp-muted);
     line-height: 1.3;
     font-weight: 600;
     text-transform: capitalize;
   }
 
-  .usp-text small{ 
-    display:block; 
-    color: var(--usp-muted); 
-    font-weight: 500; 
-    opacity: .95; 
+  .usp-text small {
+    display: block;
+    color: var(--usp-muted);
+    font-weight: 500;
+    opacity: 0.95;
     text-transform: none;
   }
 
-  @media (max-width: 480px){
-    .usp-item{ padding: 4px 0px; gap:2px; }
-    .usp-icon{ width:28px; height:28px; }
-    .usp-icon img{ max-width:18px; max-height:18px; }
-    .usp-text{ font-size:12px; }
+  @media (max-width: 480px) {
+    .usp-item {
+      padding: 4px 0px;
+      gap: 2px;
+    }
+    .usp-icon {
+      width: 28px;
+      height: 28px;
+    }
+    .usp-icon img {
+      max-width: 18px;
+      max-height: 18px;
+    }
+    .usp-text {
+      font-size: 12px;
+    }
   }
 </style>
 
 <div class="usp-features" role="list">
   <div class="usp-item" role="listitem">
-    <div class="usp-icon"><img src="https://cdn.shopify.com/s/files/1/0806/6940/9581/files/Fast_free_shipping.png?v=1763123801" alt="icon" /></div>
-    <div class="usp-text">Fast & Free Shipping </div>
+    <div class="usp-icon">
+      <img src="https://cdn.shopify.com/s/files/1/0806/6940/9581/files/Fast_free_shipping.png?v=1763123801" alt="icon">
+    </div>
+    <div class="usp-text">Fast & Free Shipping</div>
   </div>
 
   <div class="usp-item" role="listitem">
-    <div class="usp-icon"><img src="https://cdn.shopify.com/s/files/1/0806/6940/9581/files/Source_of_comfort.png?v=1763123802" alt="icon" /></div>
+    <div class="usp-icon">
+      <img src="https://cdn.shopify.com/s/files/1/0806/6940/9581/files/Source_of_comfort.png?v=1763123802" alt="icon">
+    </div>
     <div class="usp-text">Source of Comfort</div>
   </div>
 
   <div class="usp-item" role="listitem">
-    <div class="usp-icon"><img src="https://cdn.shopify.com/s/files/1/0806/6940/9581/files/Premium_fabbric.png?v=1763123801" alt="icon" /></div>
+    <div class="usp-icon">
+      <img src="https://cdn.shopify.com/s/files/1/0806/6940/9581/files/Premium_fabbric.png?v=1763123801" alt="icon">
+    </div>
     <div class="usp-text">Premium Fabric</div>
   </div>
 
   <div class="usp-item" role="listitem">
-    <div class="usp-icon"><img src="https://cdn.shopify.com/s/files/1/0806/6940/9581/files/Risk_freeshipping.png?v=1763123801" alt="icon" /></div>
+    <div class="usp-icon">
+      <img src="https://cdn.shopify.com/s/files/1/0806/6940/9581/files/Risk_freeshipping.png?v=1763123801" alt="icon">
+    </div>
     <div class="usp-text">Risk free shopping</div>
   </div>
 </div>
