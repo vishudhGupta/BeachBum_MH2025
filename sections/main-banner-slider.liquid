@@ -13,7 +13,7 @@
     >
       {%- for block in section.blocks -%}
         {%- assign desktop_img = block.settings.desktop_image -%}
-        {%- assign mobile_img  = block.settings.mobile_image | default: desktop_img -%}
+        {%- assign mobile_img = block.settings.mobile_image | default: desktop_img -%}
 
         <div
           id="Slide-{{ section.id }}-{{ forloop.index }}"
@@ -25,39 +25,80 @@
           {{ block.shopify_attributes }}
         >
           {% if block.settings.link != blank %}
-          <a href="{{ block.settings.link }}" class="bb-banner-link" aria-label="Slide {{ forloop.index }}">
+            <a href="{{ block.settings.link }}" class="bb-banner-link" aria-label="Slide {{ forloop.index }}">
           {% endif %}
 
-            <picture>
-              {%- if mobile_img != blank -%}
-                <source
-                  media="(max-width: 749px)"
-                  srcset="
-                    {{ mobile_img | image_url: width: 1500 }} 1500w,
-                    {{ mobile_img | image_url: width: 1100 }} 1100w,
-                    {{ mobile_img | image_url: width: 750  }} 750w,
-                    {{ mobile_img | image_url: width: 550  }} 550w,
-                    {{ mobile_img | image_url: width: 375  }} 375w
-                  "
-                  sizes="100vw">
-              {%- endif -%}
+          <picture>
+            {%- if mobile_img != blank -%}
+              <source
+                media="(max-width: 749px)"
+                srcset="
+                  {{ mobile_img | image_url: width: 1500 }} 1500w,
+                  {{ mobile_img | image_url: width: 1100 }} 1100w,
+                  {{ mobile_img | image_url: width: 750  }} 750w,
+                  {{ mobile_img | image_url: width: 550  }} 550w,
+                  {{ mobile_img | image_url: width: 375  }} 375w
+                "
+                sizes="100vw"
+              >
+            {%- endif -%}
 
-              {%- if desktop_img != blank -%}
-                {{ desktop_img
-                  | image_url: width: 3840
-                  | image_tag:
-                      loading: 'lazy',
-                      sizes: '100vw',
-                      widths: '750, 1100, 1500, 1780, 2000, 3000, 3840',
-                      alt: block.settings.alt_text | escape
-                }}
-              {%- else -%}
-                {{ 'hero-apparel-1' | placeholder_svg_tag: 'placeholder-svg' }}
-              {%- endif -%}
-            </picture>
+            {%- if desktop_img != blank -%}
+              {{
+                desktop_img
+                | image_url: width: 3840
+                | image_tag:
+                  loading: 'lazy',
+                  sizes: '100vw',
+                  widths: '750, 1100, 1500, 1780, 2000, 3000, 3840',
+                  alt: block.settings.alt_text
+                | escape
+              }}
+            {%- else -%}
+              {{ 'hero-apparel-1' | placeholder_svg_tag: 'placeholder-svg' }}
+            {%- endif -%}
+          </picture>
+
+          {%- if block.settings.enable_text_overlay -%}
+            {%- liquid
+              assign overlay_heading = block.settings.overlay_heading
+              assign overlay_text = block.settings.overlay_text
+              assign overlay_button_text = block.settings.overlay_button_text
+              assign overlay_button_link = block.settings.overlay_button_link
+
+              if block.settings.use_metafield and block.settings.metafield_heading != blank
+                assign overlay_heading = block.settings.metafield_heading
+              endif
+              if block.settings.use_metafield and block.settings.metafield_text != blank
+                assign overlay_text = block.settings.metafield_text
+              endif
+              if block.settings.use_metafield and block.settings.metafield_button_text != blank
+                assign overlay_button_text = block.settings.metafield_button_text
+              endif
+              if block.settings.use_metafield and block.settings.metafield_button_link != blank
+                assign overlay_button_link = block.settings.metafield_button_link
+              endif
+            -%}
+
+            <div class="bb-banner-overlay bb-banner-overlay--{{ block.settings.text_position }} bb-banner-overlay--{{ block.settings.text_alignment }}">
+              <div class="bb-banner-overlay__content">
+                {%- if overlay_heading != blank -%}
+                  <h2 class="bb-banner-overlay__heading">{{ overlay_heading }}</h2>
+                {%- endif -%}
+                {%- if overlay_text != blank -%}
+                  <div class="bb-banner-overlay__text">{{ overlay_text }}</div>
+                {%- endif -%}
+                {%- if overlay_button_text != blank and overlay_button_link != blank -%}
+                  <a href="{{ overlay_button_link }}" class="bb-banner-overlay__button button">
+                    {{ overlay_button_text }}
+                  </a>
+                {%- endif -%}
+              </div>
+            </div>
+          {%- endif -%}
 
           {% if block.settings.link != blank %}
-          </a>
+            </a>
           {% endif %}
         </div>
       {%- endfor -%}
@@ -87,7 +128,6 @@
   </slider-component>
 
   <style>
-    
     .bb-banner-slider .slider {
       display: flex;
       flex-wrap: nowrap;
@@ -100,80 +140,256 @@
       width: 100%;
       scroll-snap-align: start;
     }
+    .bb-banner-slide {
+      position: relative;
+    }
     .bb-banner-slide picture,
     .bb-banner-slide img {
       width: 100%;
       height: auto;
       display: block;
     }
-    .bb-banner-link { display: block; text-decoration: none; }
+    .bb-banner-link {
+      display: block;
+      text-decoration: none;
+      position: relative;
+    }
+
+    /* Text Overlay Styles */
+    .bb-banner-overlay {
+      position: absolute;
+      z-index: 2;
+      padding: 2rem;
+      max-width: 100%;
+    }
+
+    /* Position variants */
+    .bb-banner-overlay--top-left {
+      top: 2rem;
+      left: 2rem;
+    }
+    .bb-banner-overlay--top-center {
+      top: 2rem;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+    .bb-banner-overlay--top-right {
+      top: 2rem;
+      right: 2rem;
+    }
+    .bb-banner-overlay--middle-left {
+      top: 50%;
+      left: 2rem;
+      transform: translateY(-50%);
+    }
+    .bb-banner-overlay--middle-center {
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 40vw;
+    height: 40vh;
+    }
+    .bb-banner-overlay--middle-right {
+      top: 50%;
+      right: 2rem;
+      transform: translateY(-50%);
+      width: 40vw;
+    height: 40vh;
+    }
+    .bb-banner-overlay--bottom-left {
+      bottom: 2rem;
+      left: 2rem;
+    }
+    .bb-banner-overlay--bottom-center {
+      bottom: 2rem;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 40vw;
+    height: 40vh;
+    }
+    .bb-banner-overlay--bottom-right {
+      bottom: 2rem;
+      right: 2rem;
+      width: 40vw;
+    height: 40vh;
+    }
+
+    /* Text alignment */
+    .bb-banner-overlay--left .bb-banner-overlay__content {
+      text-align: left;
+    }
+    .bb-banner-overlay--center .bb-banner-overlay__content {
+      text-align: center;
+    }
+    .bb-banner-overlay--right .bb-banner-overlay__content {
+      text-align: right;
+    }
+
+    .bb-banner-overlay__content {
+     
+      padding: 2rem;
+      border-radius: 0.5rem;
+      backdrop-filter: blur(10px);
+    }
+
+    .bb-banner-overlay__heading {
+     font-size: 14.5rem;
+    font-weight: normal;
+    margin: 0 0 1rem;
+    line-height: 1;
+    color: white;
+    }
+
+    .bb-banner-overlay__text {
+      font-size: 1.1rem;
+      margin: 0 0 1.5rem;
+      line-height: 1.5;
+    }
+
+    .bb-banner-overlay__button {
+      display: inline-block;
+      padding: 1rem 2rem;
+      background: rgb(var(--color-button));
+      color: rgb(var(--color-button-text));
+      text-decoration: none;
+      border-radius: 0.25rem;
+      font-weight: 500;
+      transition: all 0.3s;
+    }
+
+    .bb-banner-overlay__button:hover {
+      background: rgb(var(--color-button-hover));
+      transform: translateY(-2px);
+    }
+
+    @media screen and (max-width: 749px) {
+      .bb-banner-overlay {
+        padding: 1rem;
+        max-width: 95%;
+      }
+      .bb-banner-overlay--top-left,
+      .bb-banner-overlay--middle-left,
+      .bb-banner-overlay--bottom-left {
+        left: 1rem;
+      }
+      .bb-banner-overlay--top-right,
+      .bb-banner-overlay--middle-right,
+      .bb-banner-overlay--bottom-right {
+        right: 1rem;
+      }
+      .bb-banner-overlay--top-center,
+      .bb-banner-overlay--top-left,
+      .bb-banner-overlay--top-right {
+        top: 1rem;
+      }
+      .bb-banner-overlay--bottom-center,
+      .bb-banner-overlay--bottom-left,
+      .bb-banner-overlay--bottom-right {
+        bottom: 1rem;
+      }
+      .bb-banner-overlay__content {
+        padding: 1.5rem;
+      }
+      .bb-banner-overlay__heading {
+        font-size: 1.8rem;
+      }
+      .bb-banner-overlay__text {
+        font-size: 1rem;
+        margin-bottom: 1rem;
+      }
+    }
   </style>
 
-<script>
-(() => {
-  const track = document.querySelector('#Slider-{{ section.id }}');
-  if (!track) return;
+  <script>
+    (() => {
+      const track = document.querySelector('#Slider-{{ section.id }}');
+      if (!track) return;
 
-  const slides = Array.from(track.querySelectorAll('.slider__slide'));
-  if (slides.length <= 1) return;
+      const slides = Array.from(track.querySelectorAll('.slider__slide'));
+      if (slides.length <= 1) return;
 
-  const prevBtn = track.closest('.bb-banner-slider')?.querySelector('.slider-button--prev');
-  const nextBtn = track.closest('.bb-banner-slider')?.querySelector('.slider-button--next');
+      const prevBtn = track.closest('.bb-banner-slider')?.querySelector('.slider-button--prev');
+      const nextBtn = track.closest('.bb-banner-slider')?.querySelector('.slider-button--next');
 
-  let index = 0;
-  let timer = null;
-  const INTERVAL = 3000;
+      let index = 0;
+      let timer = null;
+      const INTERVAL = 3000;
 
-  // --- core: scroll the TRACK (not the page) ---
-  function goTo(i) {
-    index = (i + slides.length) % slides.length;
-    const targetLeft = slides[index].offsetLeft;  // slide's position inside the track
-    track.scrollTo({ left: targetLeft, behavior: 'smooth' });
-  }
+      // --- core: scroll the TRACK (not the page) ---
+      function goTo(i) {
+        index = (i + slides.length) % slides.length;
+        const targetLeft = slides[index].offsetLeft; // slide's position inside the track
+        track.scrollTo({ left: targetLeft, behavior: 'smooth' });
+      }
 
-  // keep index in sync when user swipes/drags
-  let deb;
-  track.addEventListener('scroll', () => {
-    clearTimeout(deb);
-    deb = setTimeout(() => {
-      // find nearest slide by offset
-      const left = track.scrollLeft;
-      let nearest = 0, min = Infinity;
-      slides.forEach((s, idx) => {
-        const d = Math.abs(s.offsetLeft - left);
-        if (d < min) { min = d; nearest = idx; }
-      });
-      index = nearest;
-    }, 80);
-  }, { passive: true });
+      // keep index in sync when user swipes/drags
+      let deb;
+      track.addEventListener(
+        'scroll',
+        () => {
+          clearTimeout(deb);
+          deb = setTimeout(() => {
+            // find nearest slide by offset
+            const left = track.scrollLeft;
+            let nearest = 0,
+              min = Infinity;
+            slides.forEach((s, idx) => {
+              const d = Math.abs(s.offsetLeft - left);
+              if (d < min) {
+                min = d;
+                nearest = idx;
+              }
+            });
+            index = nearest;
+          }, 80);
+        },
+        { passive: true }
+      );
 
-  // autoplay
-  function start() { stop(); timer = setInterval(() => goTo(index + 1), INTERVAL); }
-  function stop()  { if (timer) clearInterval(timer); timer = null; }
+      // autoplay
+      function start() {
+        stop();
+        timer = setInterval(() => goTo(index + 1), INTERVAL);
+      }
+      function stop() {
+        if (timer) clearInterval(timer);
+        timer = null;
+      }
 
-  // wire arrows
-  if (nextBtn) nextBtn.addEventListener('click', () => { stop(); goTo(index + 1); start(); });
-  if (prevBtn) prevBtn.addEventListener('click', () => { stop(); goTo(index - 1); start(); });
+      // wire arrows
+      if (nextBtn)
+        nextBtn.addEventListener('click', () => {
+          stop();
+          goTo(index + 1);
+          start();
+        });
+      if (prevBtn)
+        prevBtn.addEventListener('click', () => {
+          stop();
+          goTo(index - 1);
+          start();
+        });
 
-  // pause on interaction; resume after a beat
-  const pause = () => stop();
-  const resume = () => { clearTimeout(resume._t); resume._t = setTimeout(start, 800); };
-  ['mouseenter','focusin','touchstart','pointerdown','wheel'].forEach(e =>
-    track.addEventListener(e, pause, { passive: true })
-  );
-  ['mouseleave','focusout','touchend','pointerup'].forEach(e =>
-    track.addEventListener(e, resume, { passive: true })
-  );
+      // pause on interaction; resume after a beat
+      const pause = () => stop();
+      const resume = () => {
+        clearTimeout(resume._t);
+        resume._t = setTimeout(start, 800);
+      };
+      ['mouseenter', 'focusin', 'touchstart', 'pointerdown', 'wheel'].forEach((e) =>
+        track.addEventListener(e, pause, { passive: true })
+      );
+      ['mouseleave', 'focusout', 'touchend', 'pointerup'].forEach((e) =>
+        track.addEventListener(e, resume, { passive: true })
+      );
 
-  // keep alignment correct on resize (width changes)
-  window.addEventListener('resize', () => goTo(index));
+      // keep alignment correct on resize (width changes)
+      window.addEventListener('resize', () => goTo(index));
 
-  // go!
-  start();
-})();
-</script>
-
-
+      // go!
+      start();
+    })();
+  </script>
 </section>
 
 {% schema %}
@@ -204,7 +420,103 @@
         { "type": "image_picker", "id": "desktop_image", "label": "Desktop image" },
         { "type": "image_picker", "id": "mobile_image", "label": "Mobile image (optional)" },
         { "type": "text", "id": "alt_text", "label": "Alt text" },
-        { "type": "url", "id": "link", "label": "Slide link" }
+        { "type": "url", "id": "link", "label": "Slide link" },
+        {
+          "type": "header",
+          "content": "Text Overlay (Optional)"
+        },
+        {
+          "type": "checkbox",
+          "id": "enable_text_overlay",
+          "label": "Enable text overlay",
+          "default": false
+        },
+        {
+          "type": "checkbox",
+          "id": "use_metafield",
+          "label": "Use metafield values",
+          "default": false,
+          "info": "When enabled, metafield values will override the text fields below"
+        },
+        {
+          "type": "text",
+          "id": "overlay_heading",
+          "label": "Heading",
+          "default": "Banner Heading"
+        },
+        {
+          "type": "textarea",
+          "id": "overlay_text",
+          "label": "Text",
+          "default": "Add your promotional text here"
+        },
+        {
+          "type": "text",
+          "id": "overlay_button_text",
+          "label": "Button text",
+          "default": "Shop Now"
+        },
+        {
+          "type": "url",
+          "id": "overlay_button_link",
+          "label": "Button link"
+        },
+        {
+          "type": "select",
+          "id": "text_position",
+          "label": "Text position",
+          "options": [
+            { "value": "top-left", "label": "Top Left" },
+            { "value": "top-center", "label": "Top Center" },
+            { "value": "top-right", "label": "Top Right" },
+            { "value": "middle-left", "label": "Middle Left" },
+            { "value": "middle-center", "label": "Middle Center" },
+            { "value": "middle-right", "label": "Middle Right" },
+            { "value": "bottom-left", "label": "Bottom Left" },
+            { "value": "bottom-center", "label": "Bottom Center" },
+            { "value": "bottom-right", "label": "Bottom Right" }
+          ],
+          "default": "middle-center"
+        },
+        {
+          "type": "select",
+          "id": "text_alignment",
+          "label": "Text alignment",
+          "options": [
+            { "value": "left", "label": "Left" },
+            { "value": "center", "label": "Center" },
+            { "value": "right", "label": "Right" }
+          ],
+          "default": "center"
+        },
+        {
+          "type": "header",
+          "content": "Metafield Settings"
+        },
+        {
+          "type": "text",
+          "id": "metafield_heading",
+          "label": "Metafield: Heading",
+          "info": "Connect a metafield for heading (e.g., product.metafields.custom.banner_heading)"
+        },
+        {
+          "type": "text",
+          "id": "metafield_text",
+          "label": "Metafield: Text",
+          "info": "Connect a metafield for text (e.g., product.metafields.custom.banner_text)"
+        },
+        {
+          "type": "text",
+          "id": "metafield_button_text",
+          "label": "Metafield: Button text",
+          "info": "Connect a metafield for button text"
+        },
+        {
+          "type": "text",
+          "id": "metafield_button_link",
+          "label": "Metafield: Button link",
+          "info": "Connect a metafield for button link"
+        }
       ]
     }
   ],
