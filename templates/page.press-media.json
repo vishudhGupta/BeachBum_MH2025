@@ -9,8 +9,85 @@
  */
 {
   "sections": {
+    "17648511266c209d3b": {
+      "type": "_blocks",
+      "blocks": {
+        "ai_gen_block_32f4f5f_dWVUp3": {
+          "type": "ai_gen_block_32f4f5f",
+          "settings": {
+            "card_background_color": "#ffffff",
+            "card_border_radius": 8,
+            "heading_color": "#121212",
+            "heading_size": 24,
+            "text_color": "#666666",
+            "text_size": 14,
+            "button_background_color": "#121212",
+            "button_hover_color": "#000000",
+            "button_text_color": "#ffffff",
+            "button_text_size": 14,
+            "button_border_radius": 4,
+            "card_1_enabled": true,
+            "card_1_image": "shopify://shop_images/indulgexpress_2025-06-19_57ub5u69_beaaa_f5b50b72-aae5-433d-a156-443aa4d73fa0.avif",
+            "card_1_heading": "Beachbum’s Blaze and Bloom brings vacation–ready menswear to Indian shores",
+            "card_1_text": "Beachbum, a young fashion brand started by Aparnna Gupta, focuses on easy, holiday-inspired clothing that’s stylish, super comfortable, and made with sustainable materials.",
+            "card_1_button_text": "Read more",
+            "card_1_button_url": "https://www.indulgexpress.com/fashion/new-launches/2025/Jun/21/beachbums-blaze-and-bloom-brings-vacationready-menswear-to-indian-shores",
+            "card_2_enabled": true,
+            "card_2_image": "shopify://shop_images/lead_68554c2aa6961.webp",
+            "card_2_heading": "Ditch The Big Brands! 5 Stylish Homegrown Finds I Packed For My Minimalist Getaway",
+            "card_2_text": "There’s no better time than now to plan a vacation and revamp our wardrobes with some cutesy outfits? I mean, when we girlies plan a getaway, the first thing on our minds is what we’re going to wear!",
+            "card_2_button_text": "Read more",
+            "card_2_button_url": "https://www.idiva.com/fashion/buys/homegrown-brands-i-packed-for-my-minimalist-getaway/18092465",
+            "card_3_enabled": true,
+            "card_3_image": "shopify://shop_images/Best-Indian-Resort-Wear-Brands-To-Shop-From-Beachbum.jpg",
+            "card_3_heading": "Best Indian Resort Wear Brands To Shop From",
+            "card_3_text": "Embrace the boho-chic lifestyle with Beachbum, a brand that champions freedom and comfort. Offering everything you need for beach and resort living in one place, from clothing to accessories and footwear, Beachbum boasts of a wide variety of options to suit every style.",
+            "card_3_button_text": "Read more",
+            "card_3_button_url": "https://currentmoodmag.com/2024/02/best-indian-resort-wear-brands-to-shop-from/",
+            "card_4_enabled": true,
+            "card_4_image": "shopify://shop_images/Screenshot_2025-12-04_180733.png",
+            "card_4_heading": "Beachbum: Redefining resortwear with sustainability & digital-first strategies",
+            "card_4_text": "In 2020, resortwear brand Beachbum was born out of a rising demand for chic, versatile, and multifunctional resortwear that celebrates both femininity and nature. As domestic brands were gaining momentum, the brand quickly capitalised on the opportunity to offer stylish and comfortable pieces tailored for the modern traveler, making its mark with designs that honour both global craftsmanship and local artistry.",
+            "card_4_button_text": "Read more",
+            "card_4_button_url": "https://www.imagesbof.in/beachbum-redefining-resortwear-with-sustainability-digital-first-strategies/",
+            "card_5_enabled": true,
+            "card_5_image": "shopify://shop_images/aparna-3012_d.webp",
+            "card_5_heading": "Beachbum Founder Aparnna Gupta Combines Fashion, Function and Sustainability to Reinvent Holiday Wear",
+            "card_5_text": "In an exclusive chat with the Mid-Day online team, Aparnna Gupta, the visionary Founder and CEO of Beachbum, opens up about her journey in creating a brand that celebrates femininity and sustainability. Launched during the pandemic in 2020, Beachbum blends global fashion trends with Indian craftsmanship to offer versatile holiday wear designed for the modern woman. Aparnna shares insights into how her past experiences and passion for local craftsmanship have shaped the brand’s identity.",
+            "card_5_button_text": "Read more",
+            "card_5_button_url": "https://www.mid-day.com/buzz/article/beachbum-founder-aparnna-gupta-combines-fashion-function-and-sustainability-to-reinvent-holiday-wear-3694",
+            "card_6_enabled": false,
+            "card_6_heading": "Blog post title",
+            "card_6_text": "Share a brief description or excerpt from your blog post.",
+            "card_6_button_text": "Read more",
+            "card_6_button_url": "",
+            "card_7_enabled": false,
+            "card_7_heading": "Blog post title",
+            "card_7_text": "Share a brief description or excerpt from your blog post.",
+            "card_7_button_text": "Read more",
+            "card_7_button_url": "",
+            "card_8_enabled": false,
+            "card_8_heading": "Blog post title",
+            "card_8_text": "Share a brief description or excerpt from your blog post.",
+            "card_8_button_text": "Read more",
+            "card_8_button_url": "",
+            "card_9_enabled": false,
+            "card_9_heading": "Blog post title",
+            "card_9_text": "Share a brief description or excerpt from your blog post.",
+            "card_9_button_text": "Read more",
+            "card_9_button_url": ""
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "ai_gen_block_32f4f5f_dWVUp3"
+      ],
+      "settings": {}
+    },
     "main": {
       "type": "main-page",
+      "disabled": true,
       "settings": {
         "padding_top": 28,
         "padding_bottom": 28
@@ -18,6 +95,7 @@
     }
   },
   "order": [
+    "17648511266c209d3b",
     "main"
   ]
 }
