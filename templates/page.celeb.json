@@ -38,14 +38,98 @@
         "heading_bnMdCe",
         "text_dRR7QH"
       ],
+      "disabled": true,
       "name": "t:sections.rich-text.presets.name",
       "settings": {
         "desktop_content_position": "center",
         "content_alignment": "center",
         "color_scheme": "",
         "full_width": true,
-        "padding_top": 40,
-        "padding_bottom": 52
+        "padding_top": 24,
+        "padding_bottom": 0
+      }
+    },
+    "collection_list_Fq4mU4": {
+      "type": "collection-list",
+      "blocks": {
+        "featured_collection_xh6VJ6": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "ankita-lokhande"
+          }
+        },
+        "featured_collection_QDhax9": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "mouni-roy"
+          }
+        },
+        "featured_collection_ycq4Bz": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "pallavi-das"
+          }
+        },
+        "featured_collection_Y3xxww": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "varnikaa-singh"
+          }
+        },
+        "featured_collection_4KxY4U": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "taanya-hooda"
+          }
+        },
+        "featured_collection_VdwKyR": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "viddhi-giri"
+          }
+        },
+        "featured_collection_yrEjpx": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "drishti-galwani-rajni"
+          }
+        },
+        "featured_collection_geeMM6": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "gulnar-virk-and-aadarsh-balakrishna"
+          }
+        },
+        "featured_collection_8HKRwW": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "bhavjet-seghal"
+          }
+        }
+      },
+      "block_order": [
+        "featured_collection_xh6VJ6",
+        "featured_collection_QDhax9",
+        "featured_collection_ycq4Bz",
+        "featured_collection_Y3xxww",
+        "featured_collection_4KxY4U",
+        "featured_collection_VdwKyR",
+        "featured_collection_yrEjpx",
+        "featured_collection_geeMM6",
+        "featured_collection_8HKRwW"
+      ],
+      "name": "t:sections.collection-list.presets.name",
+      "settings": {
+        "title": "Celebrity Edit",
+        "heading_size": "h2",
+        "image_ratio": "square",
+        "columns_desktop": 3,
+        "color_scheme": "",
+        "show_view_all": false,
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "padding_top": 32,
+        "padding_bottom": 0
       }
     },
     "collection_list_9xYAtH": {
@@ -55,12 +139,6 @@
           "type": "featured_collection",
           "settings": {
             "collection": "ankana-ghosh"
-          }
-        },
-        "featured_collection_CNFAbN": {
-          "type": "featured_collection",
-          "settings": {
-            "collection": "ankita-lokhande"
           }
         },
         "featured_collection_xXGF3D": {
@@ -81,22 +159,28 @@
             "collection": "ayna"
           }
         },
+        "featured_collection_gzQjw6": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "vrithi-manjeshwar"
+          }
+        },
         "featured_collection_ehf6gy": {
           "type": "featured_collection",
           "settings": {
             "collection": "emily"
           }
         },
-        "featured_collection_X3Xbwg": {
-          "type": "featured_collection",
-          "settings": {
-            "collection": "onella-1"
-          }
-        },
         "featured_collection_MCpbyT": {
           "type": "featured_collection",
           "settings": {
             "collection": "orvana-ghai"
+          }
+        },
+        "featured_collection_X3Xbwg": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "onella-1"
           }
         },
         "featured_collection_Je9wEf": {
@@ -117,12 +201,6 @@
             "collection": "urnisha"
           }
         },
-        "featured_collection_6Y7eiD": {
-          "type": "featured_collection",
-          "settings": {
-            "collection": "mouni-roy"
-          }
-        },
         "featured_collection_wXTmkJ": {
           "type": "featured_collection",
           "settings": {
@@ -140,29 +218,35 @@
           "settings": {
             "collection": "preeti-pahuja-chawla"
           }
+        },
+        "featured_collection_yC8kDH": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "maanya-saxena"
+          }
         }
       },
       "block_order": [
         "featured_collection_a4EMK7",
-        "featured_collection_CNFAbN",
         "featured_collection_xXGF3D",
         "featured_collection_BKdeLk",
         "featured_collection_pYcMWw",
+        "featured_collection_gzQjw6",
         "featured_collection_ehf6gy",
-        "featured_collection_X3Xbwg",
         "featured_collection_MCpbyT",
+        "featured_collection_X3Xbwg",
         "featured_collection_Je9wEf",
         "featured_collection_9VkWmG",
         "featured_collection_NQx9MW",
-        "featured_collection_6Y7eiD",
         "featured_collection_wXTmkJ",
         "featured_collection_kDEYg4",
-        "featured_collection_FzfdpX"
+        "featured_collection_FzfdpX",
+        "featured_collection_yC8kDH"
       ],
       "name": "t:sections.collection-list.presets.name",
       "settings": {
-        "title": "",
-        "heading_size": "h1",
+        "title": "Influencer Edit",
+        "heading_size": "h2",
         "image_ratio": "square",
         "columns_desktop": 3,
         "color_scheme": "",
@@ -170,13 +254,14 @@
         "columns_mobile": "1",
         "swipe_on_mobile": false,
         "padding_top": 36,
-        "padding_bottom": 36
+        "padding_bottom": 0
       }
     }
   },
   "order": [
     "main",
     "rich_text_RcGjrE",
+    "collection_list_Fq4mU4",
     "collection_list_9xYAtH"
   ]
 }
