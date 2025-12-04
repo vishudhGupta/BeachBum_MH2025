@@ -18,7 +18,19 @@
             "desktop_image": "{{ collection.metafields.custom.banner.value }}",
             "mobile_image": "{{ collection.metafields.custom.banner_mobile.value }}",
             "alt_text": "",
-            "link": ""
+            "link": "",
+            "enable_text_overlay": true,
+            "use_metafield": false,
+            "overlay_heading": "{{ collection.title }}",
+            "overlay_text": "",
+            "overlay_button_text": "Shop Now",
+            "overlay_button_link": "",
+            "text_position": "middle-right",
+            "text_alignment": "center",
+            "metafield_heading": "",
+            "metafield_text": "",
+            "metafield_button_text": "",
+            "metafield_button_link": ""
           }
         }
       },
@@ -33,6 +45,7 @@
     },
     "banner": {
       "type": "main-collection-banner",
+      "disabled": true,
       "settings": {
         "show_collection_description": true,
         "show_collection_image": true,
