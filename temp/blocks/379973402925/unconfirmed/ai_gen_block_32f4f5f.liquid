@@ -1,6 +1,984 @@
+{% doc %}
+  @prompt
+    create a blog like setion with image on top then heading and few content nd a read more button with custom url  all the feield would be customization and should show 3 in a row
+    and it should have off card addons like if i want only 5 today and 7 then next so i can add how much card i want to add
+{% enddoc %}
+{% assign ai_gen_id = block.id | replace: '_', '' | downcase %}
+
+{% style %}
+  .ai-blog-cards-{{ ai_gen_id }} {
+    padding: 40px 20px;
+  }
+
+  .ai-blog-cards__grid-{{ ai_gen_id }} {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    max-width: 1600px;
+    margin: 0 auto;
+  }
+
+  .ai-blog-card-{{ ai_gen_id }} {
+    background-color: {{ block.settings.card_background_color }};
+    border-radius: {{ block.settings.card_border_radius }}px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .ai-blog-card-{{ ai_gen_id }}:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+  }
+
+  .ai-blog-card__image-wrapper-{{ ai_gen_id }} {
+    position: relative;
+    width: 100%;
+    padding-bottom: 66.67%;
+    overflow: hidden;
+    background-color: #f4f4f4;
+  }
+
+  .ai-blog-card__image-{{ ai_gen_id }} {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .ai-blog-card__image-placeholder-{{ ai_gen_id }} {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f4f4f4;
+  }
+
+  .ai-blog-card__image-placeholder-{{ ai_gen_id }} svg {
+    width: 60%;
+    height: 60%;
+    opacity: 0.3;
+  }
+
+  .ai-blog-card__content-{{ ai_gen_id }} {
+    padding: 24px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .ai-blog-card__heading-{{ ai_gen_id }} {
+    margin: 0 0 12px;
+    font-size: {{ block.settings.heading_size }}px;
+    color: {{ block.settings.heading_color }};
+    line-height: 1.3;
+  }
+
+  .ai-blog-card__text-{{ ai_gen_id }} {
+    margin: 0 0 20px;
+    font-size: {{ block.settings.text_size }}px;
+    color: {{ block.settings.text_color }};
+    line-height: 1.6;
+    flex-grow: 1;
+  }
+
+  .ai-blog-card__button-{{ ai_gen_id }} {
+    display: inline-block;
+    padding: 12px 24px;
+    background-color: {{ block.settings.button_background_color }};
+    color: {{ block.settings.button_text_color }};
+    text-decoration: none;
+    border-radius: {{ block.settings.button_border_radius }}px;
+    font-size: {{ block.settings.button_text_size }}px;
+    text-align: center;
+    transition: background-color 0.3s ease;
+    align-self: flex-start;
+  }
+
+  .ai-blog-card__button-{{ ai_gen_id }}:hover {
+    background-color: {{ block.settings.button_hover_color }};
+  }
+
+  @media screen and (max-width: 989px) {
+    .ai-blog-cards__grid-{{ ai_gen_id }} {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+  }
+
+  @media screen and (max-width: 749px) {
+    .ai-blog-cards__grid-{{ ai_gen_id }} {
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+
+    .ai-blog-cards-{{ ai_gen_id }} {
+      padding: 30px 15px;
+    }
+  }
+{% endstyle %}
+
+<div class="ai-blog-cards-{{ ai_gen_id }}" {{ block.shopify_attributes }}>
+  <div class="ai-blog-cards__grid-{{ ai_gen_id }}">
+    {% if block.settings.card_1_enabled %}
+      <div class="ai-blog-card-{{ ai_gen_id }}">
+        <div class="ai-blog-card__image-wrapper-{{ ai_gen_id }}">
+          {% if block.settings.card_1_image %}
+            <img
+              src="{{ block.settings.card_1_image | image_url: width: 800 }}"
+              alt="{{ block.settings.card_1_image.alt | escape }}"
+              class="ai-blog-card__image-{{ ai_gen_id }}"
+              loading="lazy"
+              width="800"
+              height="533"
+            >
+          {% else %}
+            <div class="ai-blog-card__image-placeholder-{{ ai_gen_id }}">
+              {{ 'image' | placeholder_svg_tag }}
+            </div>
+          {% endif %}
+        </div>
+
+        <div class="ai-blog-card__content-{{ ai_gen_id }}">
+          {% if block.settings.card_1_heading != blank %}
+            <h3 class="ai-blog-card__heading-{{ ai_gen_id }}">
+              {{ block.settings.card_1_heading }}
+            </h3>
+          {% endif %}
+
+          {% if block.settings.card_1_text != blank %}
+            <div class="ai-blog-card__text-{{ ai_gen_id }}">
+              {{ block.settings.card_1_text }}
+            </div>
+          {% endif %}
+
+          {% if block.settings.card_1_button_text != blank %}
+            <a
+              href="{{ block.settings.card_1_button_url }}"
+              class="ai-blog-card__button-{{ ai_gen_id }}"
+            >
+              {{ block.settings.card_1_button_text }}
+            </a>
+          {% endif %}
+        </div>
+      </div>
+    {% endif %}
+
+    {% if block.settings.card_2_enabled %}
+      <div class="ai-blog-card-{{ ai_gen_id }}">
+        <div class="ai-blog-card__image-wrapper-{{ ai_gen_id }}">
+          {% if block.settings.card_2_image %}
+            <img
+              src="{{ block.settings.card_2_image | image_url: width: 800 }}"
+              alt="{{ block.settings.card_2_image.alt | escape }}"
+              class="ai-blog-card__image-{{ ai_gen_id }}"
+              loading="lazy"
+              width="800"
+              height="533"
+            >
+          {% else %}
+            <div class="ai-blog-card__image-placeholder-{{ ai_gen_id }}">
+              {{ 'image' | placeholder_svg_tag }}
+            </div>
+          {% endif %}
+        </div>
+
+        <div class="ai-blog-card__content-{{ ai_gen_id }}">
+          {% if block.settings.card_2_heading != blank %}
+            <h3 class="ai-blog-card__heading-{{ ai_gen_id }}">
+              {{ block.settings.card_2_heading }}
+            </h3>
+          {% endif %}
+
+          {% if block.settings.card_2_text != blank %}
+            <div class="ai-blog-card__text-{{ ai_gen_id }}">
+              {{ block.settings.card_2_text }}
+            </div>
+          {% endif %}
+
+          {% if block.settings.card_2_button_text != blank %}
+            <a
+              href="{{ block.settings.card_2_button_url }}"
+              class="ai-blog-card__button-{{ ai_gen_id }}"
+            >
+              {{ block.settings.card_2_button_text }}
+            </a>
+          {% endif %}
+        </div>
+      </div>
+    {% endif %}
+
+    {% if block.settings.card_3_enabled %}
+      <div class="ai-blog-card-{{ ai_gen_id }}">
+        <div class="ai-blog-card__image-wrapper-{{ ai_gen_id }}">
+          {% if block.settings.card_3_image %}
+            <img
+              src="{{ block.settings.card_3_image | image_url: width: 800 }}"
+              alt="{{ block.settings.card_3_image.alt | escape }}"
+              class="ai-blog-card__image-{{ ai_gen_id }}"
+              loading="lazy"
+              width="800"
+              height="533"
+            >
+          {% else %}
+            <div class="ai-blog-card__image-placeholder-{{ ai_gen_id }}">
+              {{ 'image' | placeholder_svg_tag }}
+            </div>
+          {% endif %}
+        </div>
+
+        <div class="ai-blog-card__content-{{ ai_gen_id }}">
+          {% if block.settings.card_3_heading != blank %}
+            <h3 class="ai-blog-card__heading-{{ ai_gen_id }}">
+              {{ block.settings.card_3_heading }}
+            </h3>
+          {% endif %}
+
+          {% if block.settings.card_3_text != blank %}
+            <div class="ai-blog-card__text-{{ ai_gen_id }}">
+              {{ block.settings.card_3_text }}
+            </div>
+          {% endif %}
+
+          {% if block.settings.card_3_button_text != blank %}
+            <a
+              href="{{ block.settings.card_3_button_url }}"
+              class="ai-blog-card__button-{{ ai_gen_id }}"
+            >
+              {{ block.settings.card_3_button_text }}
+            </a>
+          {% endif %}
+        </div>
+      </div>
+    {% endif %}
+
+    {% if block.settings.card_4_enabled %}
+      <div class="ai-blog-card-{{ ai_gen_id }}">
+        <div class="ai-blog-card__image-wrapper-{{ ai_gen_id }}">
+          {% if block.settings.card_4_image %}
+            <img
+              src="{{ block.settings.card_4_image | image_url: width: 800 }}"
+              alt="{{ block.settings.card_4_image.alt | escape }}"
+              class="ai-blog-card__image-{{ ai_gen_id }}"
+              loading="lazy"
+              width="800"
+              height="533"
+            >
+          {% else %}
+            <div class="ai-blog-card__image-placeholder-{{ ai_gen_id }}">
+              {{ 'image' | placeholder_svg_tag }}
+            </div>
+          {% endif %}
+        </div>
+
+        <div class="ai-blog-card__content-{{ ai_gen_id }}">
+          {% if block.settings.card_4_heading != blank %}
+            <h3 class="ai-blog-card__heading-{{ ai_gen_id }}">
+              {{ block.settings.card_4_heading }}
+            </h3>
+          {% endif %}
+
+          {% if block.settings.card_4_text != blank %}
+            <div class="ai-blog-card__text-{{ ai_gen_id }}">
+              {{ block.settings.card_4_text }}
+            </div>
+          {% endif %}
+
+          {% if block.settings.card_4_button_text != blank %}
+            <a
+              href="{{ block.settings.card_4_button_url }}"
+              class="ai-blog-card__button-{{ ai_gen_id }}"
+            >
+              {{ block.settings.card_4_button_text }}
+            </a>
+          {% endif %}
+        </div>
+      </div>
+    {% endif %}
+
+    {% if block.settings.card_5_enabled %}
+      <div class="ai-blog-card-{{ ai_gen_id }}">
+        <div class="ai-blog-card__image-wrapper-{{ ai_gen_id }}">
+          {% if block.settings.card_5_image %}
+            <img
+              src="{{ block.settings.card_5_image | image_url: width: 800 }}"
+              alt="{{ block.settings.card_5_image.alt | escape }}"
+              class="ai-blog-card__image-{{ ai_gen_id }}"
+              loading="lazy"
+              width="800"
+              height="533"
+            >
+          {% else %}
+            <div class="ai-blog-card__image-placeholder-{{ ai_gen_id }}">
+              {{ 'image' | placeholder_svg_tag }}
+            </div>
+          {% endif %}
+        </div>
+
+        <div class="ai-blog-card__content-{{ ai_gen_id }}">
+          {% if block.settings.card_5_heading != blank %}
+            <h3 class="ai-blog-card__heading-{{ ai_gen_id }}">
+              {{ block.settings.card_5_heading }}
+            </h3>
+          {% endif %}
+
+          {% if block.settings.card_5_text != blank %}
+            <div class="ai-blog-card__text-{{ ai_gen_id }}">
+              {{ block.settings.card_5_text }}
+            </div>
+          {% endif %}
+
+          {% if block.settings.card_5_button_text != blank %}
+            <a
+              href="{{ block.settings.card_5_button_url }}"
+              class="ai-blog-card__button-{{ ai_gen_id }}"
+            >
+              {{ block.settings.card_5_button_text }}
+            </a>
+          {% endif %}
+        </div>
+      </div>
+    {% endif %}
+
+    {% if block.settings.card_6_enabled %}
+      <div class="ai-blog-card-{{ ai_gen_id }}">
+        <div class="ai-blog-card__image-wrapper-{{ ai_gen_id }}">
+          {% if block.settings.card_6_image %}
+            <img
+              src="{{ block.settings.card_6_image | image_url: width: 800 }}"
+              alt="{{ block.settings.card_6_image.alt | escape }}"
+              class="ai-blog-card__image-{{ ai_gen_id }}"
+              loading="lazy"
+              width="800"
+              height="533"
+            >
+          {% else %}
+            <div class="ai-blog-card__image-placeholder-{{ ai_gen_id }}">
+              {{ 'image' | placeholder_svg_tag }}
+            </div>
+          {% endif %}
+        </div>
+
+        <div class="ai-blog-card__content-{{ ai_gen_id }}">
+          {% if block.settings.card_6_heading != blank %}
+            <h3 class="ai-blog-card__heading-{{ ai_gen_id }}">
+              {{ block.settings.card_6_heading }}
+            </h3>
+          {% endif %}
+
+          {% if block.settings.card_6_text != blank %}
+            <div class="ai-blog-card__text-{{ ai_gen_id }}">
+              {{ block.settings.card_6_text }}
+            </div>
+          {% endif %}
+
+          {% if block.settings.card_6_button_text != blank %}
+            <a
+              href="{{ block.settings.card_6_button_url }}"
+              class="ai-blog-card__button-{{ ai_gen_id }}"
+            >
+              {{ block.settings.card_6_button_text }}
+            </a>
+          {% endif %}
+        </div>
+      </div>
+    {% endif %}
+
+    {% if block.settings.card_7_enabled %}
+      <div class="ai-blog-card-{{ ai_gen_id }}">
+        <div class="ai-blog-card__image-wrapper-{{ ai_gen_id }}">
+          {% if block.settings.card_7_image %}
+            <img
+              src="{{ block.settings.card_7_image | image_url: width: 800 }}"
+              alt="{{ block.settings.card_7_image.alt | escape }}"
+              class="ai-blog-card__image-{{ ai_gen_id }}"
+              loading="lazy"
+              width="800"
+              height="533"
+            >
+          {% else %}
+            <div class="ai-blog-card__image-placeholder-{{ ai_gen_id }}">
+              {{ 'image' | placeholder_svg_tag }}
+            </div>
+          {% endif %}
+        </div>
+
+        <div class="ai-blog-card__content-{{ ai_gen_id }}">
+          {% if block.settings.card_7_heading != blank %}
+            <h3 class="ai-blog-card__heading-{{ ai_gen_id }}">
+              {{ block.settings.card_7_heading }}
+            </h3>
+          {% endif %}
+
+          {% if block.settings.card_7_text != blank %}
+            <div class="ai-blog-card__text-{{ ai_gen_id }}">
+              {{ block.settings.card_7_text }}
+            </div>
+          {% endif %}
+
+          {% if block.settings.card_7_button_text != blank %}
+            <a
+              href="{{ block.settings.card_7_button_url }}"
+              class="ai-blog-card__button-{{ ai_gen_id }}"
+            >
+              {{ block.settings.card_7_button_text }}
+            </a>
+          {% endif %}
+        </div>
+      </div>
+    {% endif %}
+
+    {% if block.settings.card_8_enabled %}
+      <div class="ai-blog-card-{{ ai_gen_id }}">
+        <div class="ai-blog-card__image-wrapper-{{ ai_gen_id }}">
+          {% if block.settings.card_8_image %}
+            <img
+              src="{{ block.settings.card_8_image | image_url: width: 800 }}"
+              alt="{{ block.settings.card_8_image.alt | escape }}"
+              class="ai-blog-card__image-{{ ai_gen_id }}"
+              loading="lazy"
+              width="800"
+              height="533"
+            >
+          {% else %}
+            <div class="ai-blog-card__image-placeholder-{{ ai_gen_id }}">
+              {{ 'image' | placeholder_svg_tag }}
+            </div>
+          {% endif %}
+        </div>
+
+        <div class="ai-blog-card__content-{{ ai_gen_id }}">
+          {% if block.settings.card_8_heading != blank %}
+            <h3 class="ai-blog-card__heading-{{ ai_gen_id }}">
+              {{ block.settings.card_8_heading }}
+            </h3>
+          {% endif %}
+
+          {% if block.settings.card_8_text != blank %}
+            <div class="ai-blog-card__text-{{ ai_gen_id }}">
+              {{ block.settings.card_8_text }}
+            </div>
+          {% endif %}
+
+          {% if block.settings.card_8_button_text != blank %}
+            <a
+              href="{{ block.settings.card_8_button_url }}"
+              class="ai-blog-card__button-{{ ai_gen_id }}"
+            >
+              {{ block.settings.card_8_button_text }}
+            </a>
+          {% endif %}
+        </div>
+      </div>
+    {% endif %}
+
+    {% if block.settings.card_9_enabled %}
+      <div class="ai-blog-card-{{ ai_gen_id }}">
+        <div class="ai-blog-card__image-wrapper-{{ ai_gen_id }}">
+          {% if block.settings.card_9_image %}
+            <img
+              src="{{ block.settings.card_9_image | image_url: width: 800 }}"
+              alt="{{ block.settings.card_9_image.alt | escape }}"
+              class="ai-blog-card__image-{{ ai_gen_id }}"
+              loading="lazy"
+              width="800"
+              height="533"
+            >
+          {% else %}
+            <div class="ai-blog-card__image-placeholder-{{ ai_gen_id }}">
+              {{ 'image' | placeholder_svg_tag }}
+            </div>
+          {% endif %}
+        </div>
+
+        <div class="ai-blog-card__content-{{ ai_gen_id }}">
+          {% if block.settings.card_9_heading != blank %}
+            <h3 class="ai-blog-card__heading-{{ ai_gen_id }}">
+              {{ block.settings.card_9_heading }}
+            </h3>
+          {% endif %}
+
+          {% if block.settings.card_9_text != blank %}
+            <div class="ai-blog-card__text-{{ ai_gen_id }}">
+              {{ block.settings.card_9_text }}
+            </div>
+          {% endif %}
+
+          {% if block.settings.card_9_button_text != blank %}
+            <a
+              href="{{ block.settings.card_9_button_url }}"
+              class="ai-blog-card__button-{{ ai_gen_id }}"
+            >
+              {{ block.settings.card_9_button_text }}
+            </a>
+          {% endif %}
+        </div>
+      </div>
+    {% endif %}
+  </div>
+</div>
+
 {% schema %}
- {
-   "name": "AI_Block",
-   "tag": "shopify-ai-generated-block"
- }
+{
+  "name": "Blog cards",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Card style"
+    },
+    {
+      "type": "color",
+      "id": "card_background_color",
+      "label": "Card background",
+      "default": "#ffffff"
+    },
+    {
+      "type": "range",
+      "id": "card_border_radius",
+      "min": 0,
+      "max": 20,
+      "step": 2,
+      "unit": "px",
+      "label": "Card border radius",
+      "default": 8
+    },
+    {
+      "type": "header",
+      "content": "Heading"
+    },
+    {
+      "type": "color",
+      "id": "heading_color",
+      "label": "Color",
+      "default": "#121212"
+    },
+    {
+      "type": "range",
+      "id": "heading_size",
+      "min": 16,
+      "max": 40,
+      "step": 2,
+      "unit": "px",
+      "label": "Size",
+      "default": 24
+    },
+    {
+      "type": "header",
+      "content": "Text"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Color",
+      "default": "#666666"
+    },
+    {
+      "type": "range",
+      "id": "text_size",
+      "min": 12,
+      "max": 20,
+      "step": 1,
+      "unit": "px",
+      "label": "Size",
+      "default": 14
+    },
+    {
+      "type": "header",
+      "content": "Button"
+    },
+    {
+      "type": "color",
+      "id": "button_background_color",
+      "label": "Background",
+      "default": "#121212"
+    },
+    {
+      "type": "color",
+      "id": "button_hover_color",
+      "label": "Hover background",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "button_text_color",
+      "label": "Text color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "range",
+      "id": "button_text_size",
+      "min": 12,
+      "max": 20,
+      "step": 1,
+      "unit": "px",
+      "label": "Text size",
+      "default": 14
+    },
+    {
+      "type": "range",
+      "id": "button_border_radius",
+      "min": 0,
+      "max": 30,
+      "step": 2,
+      "unit": "px",
+      "label": "Border radius",
+      "default": 4
+    },
+    {
+      "type": "header",
+      "content": "Card 1"
+    },
+    {
+      "type": "checkbox",
+      "id": "card_1_enabled",
+      "label": "Enable card 1",
+      "default": true
+    },
+    {
+      "type": "image_picker",
+      "id": "card_1_image",
+      "label": "Image"
+    },
+    {
+      "type": "text",
+      "id": "card_1_heading",
+      "label": "Heading",
+      "default": "Blog post title"
+    },
+    {
+      "type": "textarea",
+      "id": "card_1_text",
+      "label": "Text",
+      "default": "Share a brief description or excerpt from your blog post."
+    },
+    {
+      "type": "text",
+      "id": "card_1_button_text",
+      "label": "Button text",
+      "default": "Read more"
+    },
+    {
+      "type": "url",
+      "id": "card_1_button_url",
+      "label": "Button link"
+    },
+    {
+      "type": "header",
+      "content": "Card 2"
+    },
+    {
+      "type": "checkbox",
+      "id": "card_2_enabled",
+      "label": "Enable card 2",
+      "default": true
+    },
+    {
+      "type": "image_picker",
+      "id": "card_2_image",
+      "label": "Image"
+    },
+    {
+      "type": "text",
+      "id": "card_2_heading",
+      "label": "Heading",
+      "default": "Blog post title"
+    },
+    {
+      "type": "textarea",
+      "id": "card_2_text",
+      "label": "Text",
+      "default": "Share a brief description or excerpt from your blog post."
+    },
+    {
+      "type": "text",
+      "id": "card_2_button_text",
+      "label": "Button text",
+      "default": "Read more"
+    },
+    {
+      "type": "url",
+      "id": "card_2_button_url",
+      "label": "Button link"
+    },
+    {
+      "type": "header",
+      "content": "Card 3"
+    },
+    {
+      "type": "checkbox",
+      "id": "card_3_enabled",
+      "label": "Enable card 3",
+      "default": true
+    },
+    {
+      "type": "image_picker",
+      "id": "card_3_image",
+      "label": "Image"
+    },
+    {
+      "type": "text",
+      "id": "card_3_heading",
+      "label": "Heading",
+      "default": "Blog post title"
+    },
+    {
+      "type": "textarea",
+      "id": "card_3_text",
+      "label": "Text",
+      "default": "Share a brief description or excerpt from your blog post."
+    },
+    {
+      "type": "text",
+      "id": "card_3_button_text",
+      "label": "Button text",
+      "default": "Read more"
+    },
+    {
+      "type": "url",
+      "id": "card_3_button_url",
+      "label": "Button link"
+    },
+    {
+      "type": "header",
+      "content": "Card 4"
+    },
+    {
+      "type": "checkbox",
+      "id": "card_4_enabled",
+      "label": "Enable card 4",
+      "default": false
+    },
+    {
+      "type": "image_picker",
+      "id": "card_4_image",
+      "label": "Image"
+    },
+    {
+      "type": "text",
+      "id": "card_4_heading",
+      "label": "Heading",
+      "default": "Blog post title"
+    },
+    {
+      "type": "textarea",
+      "id": "card_4_text",
+      "label": "Text",
+      "default": "Share a brief description or excerpt from your blog post."
+    },
+    {
+      "type": "text",
+      "id": "card_4_button_text",
+      "label": "Button text",
+      "default": "Read more"
+    },
+    {
+      "type": "url",
+      "id": "card_4_button_url",
+      "label": "Button link"
+    },
+    {
+      "type": "header",
+      "content": "Card 5"
+    },
+    {
+      "type": "checkbox",
+      "id": "card_5_enabled",
+      "label": "Enable card 5",
+      "default": false
+    },
+    {
+      "type": "image_picker",
+      "id": "card_5_image",
+      "label": "Image"
+    },
+    {
+      "type": "text",
+      "id": "card_5_heading",
+      "label": "Heading",
+      "default": "Blog post title"
+    },
+    {
+      "type": "textarea",
+      "id": "card_5_text",
+      "label": "Text",
+      "default": "Share a brief description or excerpt from your blog post."
+    },
+    {
+      "type": "text",
+      "id": "card_5_button_text",
+      "label": "Button text",
+      "default": "Read more"
+    },
+    {
+      "type": "url",
+      "id": "card_5_button_url",
+      "label": "Button link"
+    },
+    {
+      "type": "header",
+      "content": "Card 6"
+    },
+    {
+      "type": "checkbox",
+      "id": "card_6_enabled",
+      "label": "Enable card 6",
+      "default": false
+    },
+    {
+      "type": "image_picker",
+      "id": "card_6_image",
+      "label": "Image"
+    },
+    {
+      "type": "text",
+      "id": "card_6_heading",
+      "label": "Heading",
+      "default": "Blog post title"
+    },
+    {
+      "type": "textarea",
+      "id": "card_6_text",
+      "label": "Text",
+      "default": "Share a brief description or excerpt from your blog post."
+    },
+    {
+      "type": "text",
+      "id": "card_6_button_text",
+      "label": "Button text",
+      "default": "Read more"
+    },
+    {
+      "type": "url",
+      "id": "card_6_button_url",
+      "label": "Button link"
+    },
+    {
+      "type": "header",
+      "content": "Card 7"
+    },
+    {
+      "type": "checkbox",
+      "id": "card_7_enabled",
+      "label": "Enable card 7",
+      "default": false
+    },
+    {
+      "type": "image_picker",
+      "id": "card_7_image",
+      "label": "Image"
+    },
+    {
+      "type": "text",
+      "id": "card_7_heading",
+      "label": "Heading",
+      "default": "Blog post title"
+    },
+    {
+      "type": "textarea",
+      "id": "card_7_text",
+      "label": "Text",
+      "default": "Share a brief description or excerpt from your blog post."
+    },
+    {
+      "type": "text",
+      "id": "card_7_button_text",
+      "label": "Button text",
+      "default": "Read more"
+    },
+    {
+      "type": "url",
+      "id": "card_7_button_url",
+      "label": "Button link"
+    },
+    {
+      "type": "header",
+      "content": "Card 8"
+    },
+    {
+      "type": "checkbox",
+      "id": "card_8_enabled",
+      "label": "Enable card 8",
+      "default": false
+    },
+    {
+      "type": "image_picker",
+      "id": "card_8_image",
+      "label": "Image"
+    },
+    {
+      "type": "text",
+      "id": "card_8_heading",
+      "label": "Heading",
+      "default": "Blog post title"
+    },
+    {
+      "type": "textarea",
+      "id": "card_8_text",
+      "label": "Text",
+      "default": "Share a brief description or excerpt from your blog post."
+    },
+    {
+      "type": "text",
+      "id": "card_8_button_text",
+      "label": "Button text",
+      "default": "Read more"
+    },
+    {
+      "type": "url",
+      "id": "card_8_button_url",
+      "label": "Button link"
+    },
+    {
+      "type": "header",
+      "content": "Card 9"
+    },
+    {
+      "type": "checkbox",
+      "id": "card_9_enabled",
+      "label": "Enable card 9",
+      "default": false
+    },
+    {
+      "type": "image_picker",
+      "id": "card_9_image",
+      "label": "Image"
+    },
+    {
+      "type": "text",
+      "id": "card_9_heading",
+      "label": "Heading",
+      "default": "Blog post title"
+    },
+    {
+      "type": "textarea",
+      "id": "card_9_text",
+      "label": "Text",
+      "default": "Share a brief description or excerpt from your blog post."
+    },
+    {
+      "type": "text",
+      "id": "card_9_button_text",
+      "label": "Button text",
+      "default": "Read more"
+    },
+    {
+      "type": "url",
+      "id": "card_9_button_url",
+      "label": "Button link"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Blog cards"
+    }
+  ]
+}
 {% endschema %}
