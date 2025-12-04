@@ -38,14 +38,63 @@
         "heading_bnMdCe",
         "text_dRR7QH"
       ],
+      "disabled": true,
       "name": "t:sections.rich-text.presets.name",
       "settings": {
         "desktop_content_position": "center",
         "content_alignment": "center",
         "color_scheme": "",
         "full_width": true,
-        "padding_top": 40,
-        "padding_bottom": 52
+        "padding_top": 24,
+        "padding_bottom": 0
+      }
+    },
+    "collection_list_Fq4mU4": {
+      "type": "collection-list",
+      "blocks": {
+        "featured_collection_xh6VJ6": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": ""
+          }
+        },
+        "featured_collection_QDhax9": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": ""
+          }
+        },
+        "featured_collection_ycq4Bz": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": ""
+          }
+        },
+        "featured_collection_Y3xxww": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": ""
+          }
+        }
+      },
+      "block_order": [
+        "featured_collection_xh6VJ6",
+        "featured_collection_QDhax9",
+        "featured_collection_ycq4Bz",
+        "featured_collection_Y3xxww"
+      ],
+      "name": "t:sections.collection-list.presets.name",
+      "settings": {
+        "title": "Celebrity Edit",
+        "heading_size": "h2",
+        "image_ratio": "square",
+        "columns_desktop": 3,
+        "color_scheme": "",
+        "show_view_all": false,
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "padding_top": 32,
+        "padding_bottom": 0
       }
     },
     "collection_list_9xYAtH": {
@@ -161,8 +210,8 @@
       ],
       "name": "t:sections.collection-list.presets.name",
       "settings": {
-        "title": "",
-        "heading_size": "h1",
+        "title": "Influencer Edit",
+        "heading_size": "h2",
         "image_ratio": "square",
         "columns_desktop": 3,
         "color_scheme": "",
@@ -170,13 +219,14 @@
         "columns_mobile": "1",
         "swipe_on_mobile": false,
         "padding_top": 36,
-        "padding_bottom": 36
+        "padding_bottom": 0
       }
     }
   },
   "order": [
     "main",
     "rich_text_RcGjrE",
+    "collection_list_Fq4mU4",
     "collection_list_9xYAtH"
   ]
 }
