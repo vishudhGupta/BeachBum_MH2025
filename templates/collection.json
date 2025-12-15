@@ -21,7 +21,7 @@
             "link": "",
             "enable_text_overlay": true,
             "use_metafield": false,
-            "overlay_heading": "{{ collection.title }}",
+            "overlay_heading": "{{ collection.metafields.custom.banner_heading.value }}",
             "overlay_text": "",
             "overlay_button_text": "Shop Now",
             "overlay_button_link": "",
