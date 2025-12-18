@@ -185,6 +185,7 @@
         },
         "featured_collection_Je9wEf": {
           "type": "featured_collection",
+          "disabled": true,
           "settings": {
             "collection": "shivangi-vasudeva"
           }
