@@ -1,6 +1,6 @@
 
 <script>
-function handleBuyNow(btn) {
+function handleBuyNow(e) {
   const sizeSelected = document.querySelector('input[name="globo-option-0"]:checked');
 
   if (!sizeSelected) {
@@ -8,11 +8,11 @@ function handleBuyNow(btn) {
     return;
   }
 
-  onBuyNowClick(btn);
+  onBuyNowClick(e);
 }
 </script>
 {% if settings.goBuynowEnable %}           
-<button type="button" class="button disabled" disabled onclick="handleBuyNow(this)" id="gokwik-buy-now"{% if settings.hideFlow %} style="display:none !important;" {% endif %}>
+<button type="button" class="button disabled" disabled onclick="handleBuyNow()" id="gokwik-buy-now"{% if settings.hideFlow %} style="display:none !important;" {% endif %}>
   <div style="display:none" class="addloadr" id="btn-loader">
     <div class="cir-loader">Loading..</div>
   </div>
