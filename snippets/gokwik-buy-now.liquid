@@ -1,18 +1,24 @@
-
 <script>
-function handleBuyNow(e) {
-  const sizeSelected = document.querySelector('input[name="globo-option-0"]:checked');
+function handleBuyNow(btn) {
+  const optionGroups = [...new Set(
+    [...document.querySelectorAll('input[type="radio"][name^="globo-option-"]')]
+      .map(i => i.name)
+  )];
 
-  if (!sizeSelected) {
-    alert('Please select your size');
+  const allSelected = optionGroups.every(name =>
+    document.querySelector(`input[name="${name}"]:checked`)
+  );
+
+  if (!allSelected) {
+    alert('Please select all options');
     return;
   }
 
-  onBuyNowClick(e);
+  onBuyNowClick(btn);
 }
 </script>
 {% if settings.goBuynowEnable %}           
-<button type="button" class="button disabled" disabled onclick="handleBuyNow()" id="gokwik-buy-now"{% if settings.hideFlow %} style="display:none !important;" {% endif %}>
+<button type="button" class="button disabled" disabled onclick="handleBuyNow(this)" id="gokwik-buy-now"{% if settings.hideFlow %} style="display:none !important;" {% endif %}>
   <div style="display:none" class="addloadr" id="btn-loader">
     <div class="cir-loader">Loading..</div>
   </div>
