@@ -1,15 +1,31 @@
 <script>
 function handleBuyNow(btn) {
-  const optionGroups = [...new Set(
+  const groups = [...new Set(
     [...document.querySelectorAll('input[type="radio"][name^="globo-option-"]')]
       .map(i => i.name)
   )];
 
-  const allSelected = optionGroups.every(name =>
-    document.querySelector(`input[name="${name}"]:checked`)
-  );
+  let hasError = false;
 
-  if (!allSelected) {
+  groups.forEach(name => {
+    const selected = document.querySelector(`input[name="${name}"]:checked`);
+    const errorDiv = document.querySelector(
+      `.errorOptions[data-nameinput="${name}"]`
+    );
+
+    if (!selected) {
+      hasError = true;
+      if (errorDiv) {
+        errorDiv.innerText = 'This field is required';
+        errorDiv.style.display = 'block';
+      }
+    } else if (errorDiv) {
+      errorDiv.innerText = '';
+      errorDiv.style.display = 'none';
+    }
+  });
+
+  if (hasError) {
     alert('Please select all options');
     return;
   }
