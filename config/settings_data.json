@@ -122,6 +122,11 @@
     "show_vendor": false,
     "show_cart_note": false,
     "cart_drawer_collection": "",
+    "mid": "19dax8yu3nip",
+    "envType": "production",
+    "fbpixel": "964458274092760",
+    "goEnable": true,
+    "goBuynowEnable": true,
     "sections": {
       "main-password-header": {
         "type": "main-password-header",
