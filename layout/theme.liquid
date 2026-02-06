@@ -40,7 +40,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
     {% render 'meta-tags' %}
 
-    {%- comment -%} Open Graph Meta Tags (Dynamic, SEO-driven) {%- endcomment -%}
+{%- comment -%} Open Graph Meta Tags (Dynamic, SEO-driven) {%- endcomment -%}
 
 <meta property="og:site_name" content="{{ shop.name }}" />
 <meta property="og:title" content="{{ page_title }}" />
@@ -49,13 +49,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
 {% if template == 'index' %}
   <meta property="og:type" content="website" />
-
 {% elsif template contains 'product' %}
   <meta property="og:type" content="product" />
-
 {% elsif template contains 'collection' %}
   <meta property="og:type" content="product.group" />
-
 {% else %}
   <meta property="og:type" content="website" />
 {% endif %}
@@ -68,8 +65,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 {% elsif page.image %}
   <meta property="og:image" content="{{ page.image | image_url: width: 1200 }}" />
 {% else %}
-  <meta property="og:image" content="{{ 'homepage-beachbum.jpg' | asset_url }}" />
+  <meta property="og:image" content="https://beachbum.in/cdn/shop/files/j6ebxsicebyyswfqbfvz.webp?v=1764750208&width=2000" />
 {% endif %}
+
 
 
 
