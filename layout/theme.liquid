@@ -40,6 +40,38 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
     {% render 'meta-tags' %}
 
+    {%- comment -%} Open Graph Meta Tags (Dynamic, SEO-driven) {%- endcomment -%}
+
+<meta property="og:site_name" content="{{ shop.name }}" />
+<meta property="og:title" content="{{ page_title }}" />
+<meta property="og:description" content="{{ page_description | default: shop.description }}" />
+<meta property="og:url" content="{{ canonical_url }}" />
+
+{% if template == 'index' %}
+  <meta property="og:type" content="website" />
+
+{% elsif template contains 'product' %}
+  <meta property="og:type" content="product" />
+
+{% elsif template contains 'collection' %}
+  <meta property="og:type" content="product.group" />
+
+{% else %}
+  <meta property="og:type" content="website" />
+{% endif %}
+
+{%- comment -%} OG Image Logic {%- endcomment -%}
+{% if product.featured_image %}
+  <meta property="og:image" content="{{ product.featured_image | image_url: width: 1200 }}" />
+{% elsif collection.image %}
+  <meta property="og:image" content="{{ collection.image | image_url: width: 1200 }}" />
+{% elsif page.image %}
+  <meta property="og:image" content="{{ page.image | image_url: width: 1200 }}" />
+{% else %}
+  <meta property="og:image" content="{{ 'homepage-beachbum.jpg' | asset_url }}" />
+{% endif %}
+
+
 
     <script src="{{ 'constants.js' | asset_url }}" defer="defer"></script>
     <script src="{{ 'pubsub.js' | asset_url }}" defer="defer"></script>
