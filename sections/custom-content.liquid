@@ -14,8 +14,8 @@
 
 {% if request.page_type == 'collection' %}
     <section class="custom-content-section">
-        <h2>{{ collection.metafields.custom.top_heading }}</h2>
-        <p>{{ collection.metafields.custom.top_desc | metafield_tag }}</p>
+        {% comment %} <h2>{{ collection.metafields.custom.top_heading }}</h2>
+        <p>{{ collection.metafields.custom.top_desc | metafield_tag }}</p> {% endcomment %}
     </section>
     <section class="custom-content-section">
         <h2>{{ collection.metafields.custom.bottom_heading }}</h2>
