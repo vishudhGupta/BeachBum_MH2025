@@ -11,26 +11,6 @@
   "name": "t:sections.footer.name",
   "type": "footer",
   "sections": {
-    "custom_footer_acAVB8": {
-      "type": "custom-footer",
-      "name": "Footer – Exact",
-      "settings": {
-        "footer_logo": "shopify://shop_images/Untitled_design_2_1.png",
-        "color_scheme": "",
-        "about_title": "About us",
-        "about_menu": "footer-about",
-        "categories_title": "Categories",
-        "categories_menu": "category",
-        "care_title": "Customer Care",
-        "care_menu": "footer-legal",
-        "follow_title": "Follow us",
-        "show_newsletter": true,
-        "nl_title": "Get the News Letter",
-        "nl_placeholder": "Your Email",
-        "nl_button_label": "Sign up",
-        "copyright_text": "Proudly made in India with Love"
-      }
-    },
     "footer": {
       "type": "footer",
       "blocks": {
@@ -115,12 +95,32 @@
       "type": "custom-content",
       "name": "Custom Content Section",
       "settings": {}
+    },
+    "custom_footer_acAVB8": {
+      "type": "custom-footer",
+      "name": "Footer – Exact",
+      "settings": {
+        "footer_logo": "shopify://shop_images/Untitled_design_2_1.png",
+        "color_scheme": "",
+        "about_title": "About us",
+        "about_menu": "footer-about",
+        "categories_title": "Categories",
+        "categories_menu": "category",
+        "care_title": "Customer Care",
+        "care_menu": "footer-legal",
+        "follow_title": "Follow us",
+        "show_newsletter": true,
+        "nl_title": "Get the News Letter",
+        "nl_placeholder": "Your Email",
+        "nl_button_label": "Sign up",
+        "copyright_text": "Proudly made in India with Love"
+      }
     }
   },
   "order": [
-    "custom_footer_acAVB8",
     "footer",
+    "custom_content_qntfAH",
     "rich_text_EUwHEH",
-    "custom_content_qntfAH"
+    "custom_footer_acAVB8"
   ]
 }
