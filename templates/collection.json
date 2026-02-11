@@ -9,37 +9,6 @@
  */
 {
   "sections": {
-    "rich_text_f8nYxc": {
-      "type": "rich-text",
-      "blocks": {
-        "heading_W4UUCD": {
-          "type": "heading",
-          "settings": {
-            "heading": "Men's Resort Wear Collection",
-            "heading_size": "h1"
-          }
-        },
-        "text_cQXTFB": {
-          "type": "text",
-          "settings": {
-            "text": "<p>Stylish and comfortable beach outfits for men, perfect for vacations, resort stays, and relaxed holiday looks.</p>"
-          }
-        }
-      },
-      "block_order": [
-        "heading_W4UUCD",
-        "text_cQXTFB"
-      ],
-      "name": "t:sections.rich-text.presets.name",
-      "settings": {
-        "desktop_content_position": "center",
-        "content_alignment": "center",
-        "color_scheme": "",
-        "full_width": true,
-        "padding_top": 40,
-        "padding_bottom": 52
-      }
-    },
     "main_banner_slider_BMfye9": {
       "type": "main-banner-slider",
       "blocks": {
@@ -105,7 +74,6 @@
     }
   },
   "order": [
-    "rich_text_f8nYxc",
     "main_banner_slider_BMfye9",
     "banner",
     "product-grid"
