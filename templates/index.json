@@ -17,7 +17,19 @@
           "settings": {
             "desktop_image": "shopify://shop_images/j6ebxsicebyyswfqbfvz.webp",
             "alt_text": "",
-            "link": "shopify://collections/best-sellers"
+            "link": "shopify://collections/best-sellers",
+            "enable_text_overlay": false,
+            "use_metafield": false,
+            "overlay_heading": "Banner Heading",
+            "overlay_text": "Add your promotional text here",
+            "overlay_button_text": "Shop Now",
+            "overlay_button_link": "",
+            "text_position": "middle-center",
+            "text_alignment": "center",
+            "metafield_heading": "",
+            "metafield_text": "",
+            "metafield_button_text": "",
+            "metafield_button_link": ""
           }
         },
         "slide_epyrpw": {
@@ -25,7 +37,19 @@
           "settings": {
             "desktop_image": "shopify://shop_images/mu97gylvtwz9pzblbh06.webp",
             "alt_text": "",
-            "link": "shopify://collections/best-sellers"
+            "link": "shopify://collections/best-sellers",
+            "enable_text_overlay": false,
+            "use_metafield": false,
+            "overlay_heading": "Banner Heading",
+            "overlay_text": "Add your promotional text here",
+            "overlay_button_text": "Shop Now",
+            "overlay_button_link": "",
+            "text_position": "middle-center",
+            "text_alignment": "center",
+            "metafield_heading": "",
+            "metafield_text": "",
+            "metafield_button_text": "",
+            "metafield_button_link": ""
           }
         },
         "slide_i9QbW3": {
@@ -33,7 +57,19 @@
           "settings": {
             "desktop_image": "shopify://shop_images/v5f9duu48v35y67j38ka.webp",
             "alt_text": "",
-            "link": "shopify://collections/best-sellers"
+            "link": "shopify://collections/best-sellers",
+            "enable_text_overlay": false,
+            "use_metafield": false,
+            "overlay_heading": "Banner Heading",
+            "overlay_text": "Add your promotional text here",
+            "overlay_button_text": "Shop Now",
+            "overlay_button_link": "",
+            "text_position": "middle-center",
+            "text_alignment": "center",
+            "metafield_heading": "",
+            "metafield_text": "",
+            "metafield_button_text": "",
+            "metafield_button_link": ""
           }
         }
       },
@@ -141,6 +177,64 @@
         "button_link": "shopify://pages/celebrity"
       }
     },
+    "grid_gallery_Tn3TXQ": {
+      "type": "grid-gallery",
+      "blocks": {
+        "image_iBN3w7": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Group_33642.png",
+            "caption": "",
+            "link": "shopify://collections/all-womens-beachwear"
+          }
+        },
+        "image_7B3LmL": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Group_33644.png",
+            "caption": "",
+            "link": "shopify://collections/all-mens-resort-wear"
+          }
+        },
+        "image_JkbzAr": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Group_33643.png",
+            "caption": "",
+            "link": "shopify://collections/all-women-resort-wear"
+          }
+        },
+        "image_8NE3G6": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Group_33645.png",
+            "caption": "",
+            "link": "shopify://collections/bags"
+          }
+        }
+      },
+      "block_order": [
+        "image_iBN3w7",
+        "image_7B3LmL",
+        "image_JkbzAr",
+        "image_8NE3G6"
+      ],
+      "name": "Grid Gallery (2/4)",
+      "settings": {
+        "title": "Categories",
+        "heading_size": "h2",
+        "description": "<p>Whether you prefer modern minimalism or ever-stylish bold looks, we have it all, for women and men both. </p>",
+        "gap": 16,
+        "image_shape": "portrait_tall",
+        "custom_aspect_ratio": 1,
+        "maintain_aspect_ratio": true,
+        "image_height": 260,
+        "image_fit": "cover",
+        "show_button": false,
+        "button_label": "View More",
+        "button_link": ""
+      }
+    },
     "featured_collection": {
       "type": "featured-collection",
       "custom_css": [
@@ -245,64 +339,6 @@
         "full_width": false
       }
     },
-    "grid_gallery_Tn3TXQ": {
-      "type": "grid-gallery",
-      "blocks": {
-        "image_iBN3w7": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/Group_33642.png",
-            "caption": "",
-            "link": "shopify://collections/all-womens-beachwear"
-          }
-        },
-        "image_7B3LmL": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/Group_33644.png",
-            "caption": "",
-            "link": "shopify://collections/all-mens-resort-wear"
-          }
-        },
-        "image_JkbzAr": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/Group_33643.png",
-            "caption": "",
-            "link": "shopify://collections/all-women-resort-wear"
-          }
-        },
-        "image_8NE3G6": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/Group_33645.png",
-            "caption": "",
-            "link": "shopify://collections/bags"
-          }
-        }
-      },
-      "block_order": [
-        "image_iBN3w7",
-        "image_7B3LmL",
-        "image_JkbzAr",
-        "image_8NE3G6"
-      ],
-      "name": "Grid Gallery (2/4)",
-      "settings": {
-        "title": "Categories",
-        "heading_size": "h2",
-        "description": "<p>Whether you prefer modern minimalism or ever-stylish bold looks, we have it all, for women and men both. </p>",
-        "gap": 16,
-        "image_shape": "portrait_tall",
-        "custom_aspect_ratio": 1,
-        "maintain_aspect_ratio": true,
-        "image_height": 260,
-        "image_fit": "cover",
-        "show_button": false,
-        "button_label": "View More",
-        "button_link": ""
-      }
-    },
     "featured_blog_FJcYQV": {
       "type": "featured-blog",
       "disabled": true,
@@ -401,10 +437,10 @@
   "order": [
     "main_banner_slider_BgD6qP",
     "featured_collection_UTcxPP",
-    "grid_gallery_JEWKBW",
+    "grid_gallery_Tn3TXQ",
     "featured_collection",
     "custom_shop_the_look_WkCAgn",
-    "grid_gallery_Tn3TXQ",
+    "grid_gallery_JEWKBW",
     "featured_blog_FJcYQV",
     "collapsible_content_wddDVB"
   ]
