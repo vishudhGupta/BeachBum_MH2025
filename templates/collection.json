@@ -9,6 +9,43 @@
  */
 {
   "sections": {
+    "main_banner_slider_BMfye9": {
+      "type": "main-banner-slider",
+      "blocks": {
+        "slide_cNCNUX": {
+          "type": "slide",
+          "settings": {
+            "desktop_image": "{{ collection.metafields.custom.banner.value }}",
+            "mobile_image": "{{ collection.metafields.custom.banner_mobile.value }}",
+            "alt_text": "",
+            "link": "",
+            "enable_text_overlay": true,
+            "use_metafield": false,
+            "overlay_heading": "{{ collection.metafields.custom.banner_heading.value }}",
+            "overlay_text": "",
+            "overlay_button_text": "Shop Now",
+            "overlay_button_link": "",
+            "text_position": "middle-right",
+            "text_alignment": "center",
+            "metafield_heading": "",
+            "metafield_text": "",
+            "metafield_button_text": "",
+            "metafield_button_link": ""
+          }
+        }
+      },
+      "block_order": [
+        "slide_cNCNUX"
+      ],
+      "custom_css": [
+        "picture .placeholder-svg {display: none;}"
+      ],
+      "name": "Banner Slider (Auto, Responsive)",
+      "settings": {
+        "color_scheme": "",
+        "full_width": true
+      }
+    },
     "rich_text_xdcerQ": {
       "type": "rich-text",
       "blocks": {
@@ -51,40 +88,6 @@
         "full_width": true,
         "padding_top": 40,
         "padding_bottom": 52
-      }
-    },
-    "main_banner_slider_BMfye9": {
-      "type": "main-banner-slider",
-      "blocks": {
-        "slide_cNCNUX": {
-          "type": "slide",
-          "settings": {
-            "desktop_image": "{{ collection.metafields.custom.banner.value }}",
-            "mobile_image": "{{ collection.metafields.custom.banner_mobile.value }}",
-            "alt_text": "",
-            "link": "",
-            "enable_text_overlay": true,
-            "use_metafield": false,
-            "overlay_heading": "{{ collection.metafields.custom.banner_heading.value }}",
-            "overlay_text": "",
-            "overlay_button_text": "Shop Now",
-            "overlay_button_link": "",
-            "text_position": "middle-right",
-            "text_alignment": "center",
-            "metafield_heading": "",
-            "metafield_text": "",
-            "metafield_button_text": "",
-            "metafield_button_link": ""
-          }
-        }
-      },
-      "block_order": [
-        "slide_cNCNUX"
-      ],
-      "name": "Banner Slider (Auto, Responsive)",
-      "settings": {
-        "color_scheme": "",
-        "full_width": true
       }
     },
     "banner": {
