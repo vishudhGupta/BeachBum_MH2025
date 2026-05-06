@@ -34,9 +34,12 @@
 
 <div class="cpc-card {% if on_collection %}cpc--collection{% endif %}" id="{{ card_id }}">
   <div class="cpc-imgwrap">
+    <div class="product-badges">
     {% if has_sale %}
       <span class="cpc-badge">{{ discount_pct }}% off</span>
     {% endif %}
+    {% render "custom-badge" %}
+    </div>
     <a href="{{ p.url }}" class="cpc-imglink">
       <img
         class="cpc-img"
