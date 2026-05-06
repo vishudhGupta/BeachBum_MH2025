@@ -1,0 +1,127 @@
+<script>
+/* =========================
+   CONFIG
+========================= */
+window.bogoConfig = {
+  empty: {{ settings.bogo_msg_empty | json }}
+};
+
+window.bogoEligibleProducts = [
+  {% for product in settings.bogo_products %}
+    "{{ product.id }}"{% unless forloop.last %},{% endunless %}
+  {% endfor %}
+];
+
+
+/* =========================
+   MAIN FUNCTION
+========================= */
+function updateBogoUI(cart){
+
+  const messageEls = document.querySelectorAll('.bogo-message');
+  const progressEls = document.querySelectorAll('.bogo-progress-fill');
+  const wrapperEls = document.querySelectorAll('.bogo-wrapper');
+
+  if(!messageEls.length) return;
+
+let eligibleItems = [];
+
+// ✅ If no products selected → GLOBAL BOGO
+if (!window.bogoEligibleProducts || window.bogoEligibleProducts.length === 0) {
+  eligibleItems = cart.items;
+} else {
+  // ✅ Selective BOGO
+  eligibleItems = cart.items.filter(item => 
+    window.bogoEligibleProducts.map(String).includes(String(item.product_id))
+  );
+}
+
+  const eligibleCount = eligibleItems.reduce((sum, item) => sum + item.quantity, 0);
+
+  console.log("Eligible count:", eligibleCount);
+
+// 🔥 STRICT HIDE
+if(eligibleCount === 0){
+  wrapperEls.forEach(el => el.style.display = "none");
+  return;
+}
+
+// ✅ SHOW
+wrapperEls.forEach(el => el.style.display = "block");
+
+  let message = "";
+  let progress = 0;
+
+  const freeItems = Math.floor(eligibleCount / 2);
+  const isOdd = eligibleCount % 2 === 1;
+
+  if(isOdd){
+    message = `🔥 You're 1 item away from getting ${freeItems + 1} FREE 🎁`;
+    progress = 50;
+
+  } else {
+    message = `🎉 You've unlocked ${freeItems} FREE item${freeItems > 1 ? 's' : ''}`;
+    progress = 100;
+  }
+
+  messageEls.forEach(el => el.innerText = message);
+
+  progressEls.forEach(el => {
+    el.style.width = progress + "%";
+  });
+
+}
+
+
+/* =========================
+   FETCH CART
+========================= */
+function getCartAndUpdate(){
+  fetch('/cart.js')
+    .then(res => res.json())
+    .then(cart => updateBogoUI(cart));
+}
+
+
+/* =========================
+   INITIAL LOAD
+========================= */
+document.addEventListener('DOMContentLoaded', function(){
+  getCartAndUpdate();
+});
+
+
+/* =========================
+   AUTO CART LISTENER
+========================= */
+(function() {
+
+  const originalFetch = window.fetch;
+
+  window.fetch = async function(...args) {
+
+    const response = await originalFetch(...args);
+
+    if (typeof args[0] === 'string' && args[0].includes('/cart')) {
+      getCartAndUpdate();
+    }
+
+    return response;
+  };
+
+})();
+
+
+/* =========================
+   REMOVE BUTTON FALLBACK
+========================= */
+document.addEventListener('click', function(e){
+
+  const removeBtn = e.target.closest('[name="remove"], .cart-remove, .remove');
+
+  if(removeBtn){
+    setTimeout(getCartAndUpdate, 100);
+  }
+
+});
+</script>
