@@ -12,6 +12,27 @@
     "main_banner_slider_BgD6qP": {
       "type": "main-banner-slider",
       "blocks": {
+        "slide_tbfcF6": {
+          "type": "slide",
+          "settings": {
+            "desktop_image": "shopify://shop_images/BUY_ONE_GET_ONE.png",
+            "mobile_image": "shopify://shop_images/BUY_ONE_GET_ONE_Mobile.png",
+            "alt_text": "",
+            "link": "https://beachbum.in/collections/all?filter.v.price.gte=&filter.v.price.lte=&sort_by=best-selling",
+            "enable_text_overlay": false,
+            "use_metafield": false,
+            "overlay_heading": "Banner Heading",
+            "overlay_text": "Add your promotional text here",
+            "overlay_button_text": "Shop Now",
+            "overlay_button_link": "",
+            "text_position": "middle-center",
+            "text_alignment": "center",
+            "metafield_heading": "",
+            "metafield_text": "",
+            "metafield_button_text": "",
+            "metafield_button_link": ""
+          }
+        },
         "slide_zNPcNK": {
           "type": "slide",
           "settings": {
@@ -74,6 +95,7 @@
         }
       },
       "block_order": [
+        "slide_tbfcF6",
         "slide_zNPcNK",
         "slide_epyrpw",
         "slide_i9QbW3"
@@ -114,67 +136,6 @@
         "swipe_on_mobile": true,
         "padding_top": 36,
         "padding_bottom": 0
-      }
-    },
-    "grid_gallery_JEWKBW": {
-      "type": "grid-gallery",
-      "blocks": {
-        "image_hRgTQ4": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/1_6.png",
-            "caption": "",
-            "link": "shopify://collections/onella-1"
-          }
-        },
-        "image_jFxBMw": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/3_1.png",
-            "caption": "",
-            "link": "shopify://collections/mouni-roy"
-          }
-        },
-        "image_fqKQ8x": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/Title_26.jpg",
-            "caption": "",
-            "link": "shopify://collections/ashna-suri"
-          }
-        },
-        "image_zAXwb6": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/2_1.png",
-            "caption": "",
-            "link": "shopify://collections/ankana-ghosh"
-          }
-        }
-      },
-      "block_order": [
-        "image_hRgTQ4",
-        "image_jFxBMw",
-        "image_fqKQ8x",
-        "image_zAXwb6"
-      ],
-      "custom_css": [
-        ".grid-gallery {padding-bottom: 0px !important;}"
-      ],
-      "name": "Grid Gallery (2/4)",
-      "settings": {
-        "title": "Celebrities in BeachBum",
-        "heading_size": "h2",
-        "description": "<p>Fits loved by your favorite celebrities and fashion influencers. Recreate their looks in your own way.</p>",
-        "gap": 16,
-        "image_shape": "portrait_tall",
-        "custom_aspect_ratio": 1,
-        "maintain_aspect_ratio": true,
-        "image_height": 260,
-        "image_fit": "cover",
-        "show_button": true,
-        "button_label": "View More",
-        "button_link": "shopify://pages/celebrity"
       }
     },
     "grid_gallery_Tn3TXQ": {
@@ -337,6 +298,67 @@
         "subheading": "Discover curated looks and shop your favorite styles.",
         "color_scheme": "",
         "full_width": false
+      }
+    },
+    "grid_gallery_JEWKBW": {
+      "type": "grid-gallery",
+      "blocks": {
+        "image_hRgTQ4": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/1_6.png",
+            "caption": "",
+            "link": "shopify://collections/onella-1"
+          }
+        },
+        "image_jFxBMw": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/3_1.png",
+            "caption": "",
+            "link": "shopify://collections/mouni-roy"
+          }
+        },
+        "image_fqKQ8x": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Title_26.jpg",
+            "caption": "",
+            "link": "shopify://collections/ashna-suri"
+          }
+        },
+        "image_zAXwb6": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/2_1.png",
+            "caption": "",
+            "link": "shopify://collections/ankana-ghosh"
+          }
+        }
+      },
+      "block_order": [
+        "image_hRgTQ4",
+        "image_jFxBMw",
+        "image_fqKQ8x",
+        "image_zAXwb6"
+      ],
+      "custom_css": [
+        ".grid-gallery {padding-bottom: 0px !important;}"
+      ],
+      "name": "Grid Gallery (2/4)",
+      "settings": {
+        "title": "Celebrities in BeachBum",
+        "heading_size": "h2",
+        "description": "<p>Fits loved by your favorite celebrities and fashion influencers. Recreate their looks in your own way.</p>",
+        "gap": 16,
+        "image_shape": "portrait_tall",
+        "custom_aspect_ratio": 1,
+        "maintain_aspect_ratio": true,
+        "image_height": 260,
+        "image_fit": "cover",
+        "show_button": true,
+        "button_label": "View More",
+        "button_link": "shopify://pages/celebrity"
       }
     },
     "featured_blog_FJcYQV": {
