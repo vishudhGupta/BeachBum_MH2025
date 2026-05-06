@@ -12,11 +12,12 @@
 <div class="collection-hero{% if section.settings.show_collection_image and collection.image %} collection-hero--with-image{% endif %} color-{{ section.settings.color_scheme }} gradient">
   <div class="collection-hero__inner page-width {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}">
     <div class="collection-hero__text-wrapper">
+      {%- if section.settings.show_title -%}
       <h1 class="collection-hero__title">
         <span class="visually-hidden">{{ 'sections.collection_template.title' | t }}: </span>
         {{- collection.title | escape -}}
       </h1>
-
+{% endif %}
       {%- if section.settings.show_collection_description -%}
         <div class="collection-hero__description rte">{{ collection.description }}</div>
       {%- endif -%}
@@ -45,6 +46,23 @@
   </div>
 </div>
 
+{% if collection.handle == 'all' %}
+  
+  {% if section.settings.all_collection_banner != blank %}
+    <div class="collection-banner small-hide">
+      {{ section.settings.all_collection_banner | image_url: width: 1920 | image_tag: class: 'banner__media', loading: 'lazy' }}
+    </div>
+  {% endif %}
+
+  {% comment %} Mobile Banner {% endcomment %}
+  {% if section.settings.all_collection_banner_m != blank %}
+    <div class="collection-banner medium-hide large-up-hide">
+      {{ section.settings.all_collection_banner_m | image_url: width: 800 | image_tag: class: 'banner__media', loading: 'lazy' }}
+    </div>
+  {% endif %}
+
+{% endif %}
+
 {% schema %}
 {
   "name": "t:sections.main-collection-banner.name",
@@ -53,6 +71,12 @@
     {
       "type": "paragraph",
       "content": "t:sections.main-collection-banner.settings.paragraph.content"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_title",
+      "default": true,
+      "label": "Title"
     },
     {
       "type": "checkbox",
@@ -71,6 +95,16 @@
       "id": "color_scheme",
       "label": "t:sections.all.colors.label",
       "default": "scheme-1"
+    },
+    {
+      "type": "image_picker",
+      "id": "all_collection_banner",
+      "label": "Desktop Banner"
+    },
+    {
+      "type": "image_picker",
+      "id": "all_collection_banner_m",
+      "label": "Mobile Banner"
     }
   ]
 }
