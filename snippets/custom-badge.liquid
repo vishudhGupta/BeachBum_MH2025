@@ -1,0 +1,30 @@
+{% assign show_bogo = false %}
+
+{% if settings.enable_bogo %}
+  
+  {% if settings.bogo_products.size > 0 %}
+    {% if settings.bogo_products contains product %}
+      {% assign show_bogo = true %}
+    {% endif %}
+  {% else %}
+    {% assign show_bogo = true %}
+  {% endif %}
+
+{% endif %}
+
+{% if show_bogo %}
+  <span class="cpc-badge badge badge--bottom-left color-{{ settings.sale_badge_color_scheme }}">
+    {{ settings.bogo_label_text }}
+  </span>
+{% endif %}
+<style>
+  .product__media-wrapper{
+  position: relative;
+  }
+.product__media-wrapper .cpc-badge{
+	position: absolute;
+	z-index: 3;
+	top: 1%;
+	left: 2%;
+}
+  </style>
