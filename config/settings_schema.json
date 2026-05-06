@@ -1581,6 +1581,57 @@
      "label": "Enable Banner Text"
    }
  ]
+},
+{
+  "name": "B1G1",
+  "settings": [
+   {
+      "type": "header",
+      "content": "B1G1 Settings"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_bogo",
+      "label": "Enable B1G1 Label",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "bogo_label_text",
+      "label": "Label Text",
+      "default": "BUY 1 GET 1"
+    },
+    {
+      "type": "product_list",
+      "id": "bogo_products",
+      "label": "Specific Products (optional)"
+    },
+    {
+      "type": "header",
+      "content": "Cart Messages"
+    },
+    {
+      "type": "text",
+      "id": "bogo_msg_empty",
+      "label": "Message when cart is empty",
+      "default": "Add 2 items to unlock Buy 1 Get 1"
+    },
+    {
+      "type": "header",
+      "content": "Cart Banner"
+    },
+    {
+      "type": "image_picker",
+      "id": "cart_banner_image",
+      "label": "Cart Banner Image"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_cart_banner",
+      "label": "Enable Cart Banner",
+      "default": true
+    }
+  ]
 }
 
 
