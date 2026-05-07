@@ -16,9 +16,28 @@
           "type": "slide",
           "settings": {
             "desktop_image": "shopify://shop_images/BUY_ONE_GET_ONE.png",
-            "mobile_image": "shopify://shop_images/BUY_ONE_GET_ONE_Mobile.png",
             "alt_text": "",
             "link": "https://beachbum.in/collections/all?filter.v.price.gte=&filter.v.price.lte=&sort_by=best-selling",
+            "enable_text_overlay": false,
+            "use_metafield": false,
+            "overlay_heading": "Banner Heading",
+            "overlay_text": "Add your promotional text here",
+            "overlay_button_text": "Shop Now",
+            "overlay_button_link": "",
+            "text_position": "middle-center",
+            "text_alignment": "center",
+            "metafield_heading": "",
+            "metafield_text": "",
+            "metafield_button_text": "",
+            "metafield_button_link": ""
+          }
+        },
+        "slide_ha4VPG": {
+          "type": "slide",
+          "settings": {
+            "desktop_image": "shopify://shop_images/2_2.png",
+            "alt_text": "",
+            "link": "https://beachbum.in/collections/all-women-resort-wear?filter.v.price.gte=&filter.v.price.lte=&sort_by=best-selling",
             "enable_text_overlay": false,
             "use_metafield": false,
             "overlay_heading": "Banner Heading",
@@ -96,6 +115,7 @@
       },
       "block_order": [
         "slide_tbfcF6",
+        "slide_ha4VPG",
         "slide_zNPcNK",
         "slide_epyrpw",
         "slide_i9QbW3"
