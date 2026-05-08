@@ -92,23 +92,35 @@ document.addEventListener('DOMContentLoaded', function(){
 
 
 /* =========================
-   AUTO CART LISTENER
+   FIXED AUTO CART LISTENER
 ========================= */
 (function() {
-
   const originalFetch = window.fetch;
 
   window.fetch = async function(...args) {
+    const url = typeof args[0] === 'string' ? args[0] : args[0].url;
 
+    // Call the original fetch
     const response = await originalFetch(...args);
 
-    if (typeof args[0] === 'string' && args[0].includes('/cart')) {
-      getCartAndUpdate();
+    /* 
+       Only trigger update if:
+       1. The URL contains '/cart'
+       2. It is NOT the 'cart.js' call itself (to prevent loops)
+       3. It's a request likely to change data (add, change, update, clear)
+    */
+    const isCartChange = url.includes('/cart/add') || 
+                         url.includes('/cart/change') || 
+                         url.includes('/cart/update') || 
+                         url.includes('/cart/clear');
+
+    if (isCartChange && response.ok) {
+      // Delay slightly to allow the server to process the change
+      setTimeout(getCartAndUpdate, 200);
     }
 
     return response;
   };
-
 })();
 
 
