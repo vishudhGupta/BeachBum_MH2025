@@ -36,6 +36,18 @@
         "enable_language_selector": false
       }
     },
+    "countdown_timer_qB3W4X": {
+      "type": "countdown-timer",
+      "disabled": true,
+      "name": "Countdown Timer",
+      "settings": {
+        "heading": "<p>🔥 Sale Ends In</p>",
+        "timer": true,
+        "end_date": "2026-05-14 23:59:59",
+        "bgcolor": "#334fb4",
+        "textcolor": "#ffffff"
+      }
+    },
     "header": {
       "type": "header",
       "settings": {
@@ -58,6 +70,7 @@
   },
   "order": [
     "announcement-bar",
+    "countdown_timer_qB3W4X",
     "header"
   ]
 }
