@@ -1,0 +1,187 @@
+<div class="countdown-wrapper" data-end="{{ section.settings.end_date }}">
+  <div class="countdown-inner" style="
+    display: inline-flex;
+    height: 20px;
+    font-weight: bold;
+">
+    
+    {% if section.settings.heading != blank %}
+      <div class="countdown-heading">{{ section.settings.heading }}</div> &nbsp;&nbsp;
+    {% endif %}
+{% if section.settings.timer %}
+    <div class="countdown-timer">
+      <div><span class="cd-days">00</span><small>Days</small></div>
+      <div><span class="cd-hours">00</span><small>Hrs</small></div>
+      <div><span class="cd-minutes">00</span><small>Min</small></div>
+      <div><span class="cd-seconds">00</span><small>Sec</small></div>
+    </div>
+  {% endif %}
+  </div>
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", function(){
+
+  const timer = document.querySelector(".countdown-wrapper");
+  if(!timer) return;
+
+  const endDate = new Date(timer.dataset.end).getTime();
+
+  function updateTimer(){
+
+    const now = new Date().getTime();
+    const diff = endDate - now;
+
+    if(diff <= 0){
+      timer.style.display = "none"; // hide after expiry
+      return;
+    }
+
+    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+    const minutes = Math.floor((diff / (1000 * 60)) % 60);
+    const seconds = Math.floor((diff / 1000) % 60);
+
+    timer.querySelector(".cd-days").innerText = days;
+    timer.querySelector(".cd-hours").innerText = hours;
+    timer.querySelector(".cd-minutes").innerText = minutes;
+    timer.querySelector(".cd-seconds").innerText = seconds;
+  }
+
+  updateTimer();
+  setInterval(updateTimer, 1000);
+
+});
+</script>
+
+<style>
+.countdown-wrapper{
+  background:{{section.settings.bgcolor}};
+  color:{{section.settings.textcolor}};
+  padding:18px 12px;
+  text-align:center;
+  border-bottom:1px solid rgba(255,255,255,0.1);
+}
+
+.countdown-heading {
+    font-size: 14px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    opacity: 0.8;
+    margin-top: -3px;
+    line-height: 0;
+}
+
+/* TIMER LAYOUT */
+.countdown-timer{
+  display:flex;
+  justify-content:center;
+  gap:12px;
+}
+
+/* EACH BOX */
+.countdown-timer div{
+  background:rgba(255,255,255,0.05);
+  border:1px solid rgba(255,255,255,0.1);
+  border-radius:10px;
+  padding:10px 12px;
+  min-width:60px;
+  backdrop-filter: blur(6px);
+  transition:all 0.3s ease;
+      display: contents;
+}
+
+/* HOVER EFFECT (desktop) */
+.countdown-timer div:hover{
+  background:rgba(255,255,255,0.08);
+  transform:translateY(-2px);
+}
+
+/* NUMBER */
+.countdown-timer span{
+  font-size:20px;
+  font-weight:700;
+  display:block;
+  letter-spacing:1px;
+  height: 15px;
+    line-height: 1;
+}
+
+/* LABEL */
+.countdown-timer small{
+  font-size:11px;
+  text-transform:uppercase;
+  opacity:0.6;
+  letter-spacing:0.5px;
+      height: 15px;
+}
+
+/* MOBILE */
+@media(max-width:600px){
+  .countdown-timer{
+    gap:8px;
+  }
+
+  .countdown-timer div{
+    min-width:50px;
+    padding:8px;
+  }
+
+  .countdown-timer span{
+    font-size:16px;
+  }
+}
+
+.cd-seconds{
+  animation:blink 1s infinite;
+}
+
+@keyframes blink{
+  0%,100%{opacity:1;}
+  50%{opacity:0.5;}
+}
+.countdown-timer div{
+  box-shadow:0 0 10px rgba(46, 196, 255, 0.65);
+}
+</style>
+
+{% schema %}
+{
+  "name": "Countdown Timer",
+  "settings": [
+    {
+      "type": "richtext",
+      "id": "heading",
+      "label": "Heading",
+      "default": "<p>🔥 Sale Ends In</p>"
+    },
+    {
+      "type": "checkbox",
+      "id": "timer",
+      "label": "Show/Hide",
+      "default": false
+    },
+    {
+      "type": "text",
+      "id": "end_date",
+      "label": "End Date (YYYY-MM-DD HH:MM:SS)",
+      "default": "2026-12-31 23:59:59"
+    },
+    {
+      "type": "color",
+      "id": "bgcolor",
+      "label": "BG Color"
+    },
+    {
+      "type": "color",
+      "id": "textcolor",
+      "label": "Text Color"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Countdown Timer"
+    }
+  ]
+}
+{% endschema %}
