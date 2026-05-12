@@ -26,6 +26,7 @@
       "block_order": [
         "announcement-bar-0"
       ],
+      "disabled": true,
       "settings": {
         "auto_rotate": false,
         "change_slides_speed": 5,
@@ -38,7 +39,6 @@
     },
     "countdown_timer_qB3W4X": {
       "type": "countdown-timer",
-      "disabled": true,
       "name": "Countdown Timer",
       "settings": {
         "heading": "<p>🔥 Sale Ends In</p>",
