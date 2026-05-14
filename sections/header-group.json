@@ -39,6 +39,7 @@
     },
     "countdown_timer_qB3W4X": {
       "type": "countdown-timer",
+      "disabled": true,
       "name": "Countdown Timer",
       "settings": {
         "heading": "<p>🔥 Sale Ends In</p>",
