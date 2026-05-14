@@ -53,6 +53,7 @@
         },
         "custom_liquid_AhiDBX": {
           "type": "custom_liquid",
+          "disabled": true,
           "settings": {
             "custom_liquid": "{% render 'grab-off' %}"
           }
