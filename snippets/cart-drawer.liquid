@@ -74,7 +74,7 @@
           </span>
         </button>
       </div>
-      {% render "cart-progress" %}
+    {% comment %}  {% render "cart-progress" %} {% endcomment %}
       <cart-drawer-items
         {% if cart == empty %}
           class=" is-empty"
