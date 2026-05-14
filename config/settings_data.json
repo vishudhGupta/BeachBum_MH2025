@@ -128,6 +128,7 @@
     "fbpixel": "964458274092760",
     "goEnable": true,
     "goBuynowEnable": true,
+    "enable_bogo": false,
     "bogo_label_text": "BUY 1 GET 1 FREE",
     "bogo_msg_empty": "Add 2 items to unlock Buy 1 Get 1 FREE",
     "enable_cart_banner": false,
