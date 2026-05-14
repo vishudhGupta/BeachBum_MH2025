@@ -14,6 +14,7 @@
       "blocks": {
         "slide_tbfcF6": {
           "type": "slide",
+          "disabled": true,
           "settings": {
             "desktop_image": "shopify://shop_images/BUY_ONE_GET_ONE.png",
             "alt_text": "",
@@ -34,6 +35,7 @@
         },
         "slide_ha4VPG": {
           "type": "slide",
+          "disabled": true,
           "settings": {
             "desktop_image": "shopify://shop_images/BUY_ONE_GET_ONE__home.png",
             "alt_text": "",
